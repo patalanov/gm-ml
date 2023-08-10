@@ -1,0 +1,4 @@
+,Algoritmo,Parametrização,Acuracia,Recall
+0,Logistic Regression,Logistic Regression,0.9080254339233544,0.5
+1,Logistic Regression,"Logistic Regression, fit_intercetp=False",0.9080254339233544,0.5
+2,Logistic Regression,"Logistic Regression, Weights Balanced",0.6429798934524833,0.6909024942587176

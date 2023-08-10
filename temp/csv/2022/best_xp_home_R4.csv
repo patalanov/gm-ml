@@ -1,0 +1,164 @@
+,apelido,atleta_id,clube,posicao,media_casa,media_fora,adversário,mando,media_cedidos,XP_mandante
+815,Muriqui,38225,Avaí,ATA,14.5,0.0,Coritiba,mandante,0.0,14.5
+816,Savarino,98672,Atlético-MG,ATA,19.8,0.0,América-MG,mandante,8.0,13.9
+817,Bissoli,100762,Avaí,ATA,13.0,1.1,Coritiba,mandante,0.0,13.0
+818,Zé Rafael,82455,Palmeiras,MEI,16.9,0.0,Fluminense,mandante,0.5,8.7
+819,Marlon Freitas,93790,Atlético-GO,MEI,15.7,2.9,Goiás,mandante,1.0,8.35
+820,Raphael Veiga,94509,Palmeiras,MEI,15.6,0.0,Fluminense,mandante,0.5,8.05
+821,Everson,72294,Atlético-MG,GOL,0.0,-1.0,América-MG,mandante,8.0,8.0
+822,Jair,81091,Atlético-MG,MEI,7.8,0.55,América-MG,mandante,8.0,7.9
+823,Gustavo Gómez,71684,Palmeiras,ZAG,15.2,0.0,Fluminense,mandante,0.5,7.85
+824,Eduardo,91688,Avaí,MEI,7.8,0.2,Coritiba,mandante,0.0,7.8
+825,Bruno Silva,68698,Avaí,MEI,7.0,1.4,Coritiba,mandante,0.0,7.0
+826,Rubens,110727,Atlético-MG,MEI,6.0,-0.15,América-MG,mandante,8.0,7.0
+827,Hulk,39148,Atlético-MG,ATA,5.6,6.5,América-MG,mandante,8.0,6.8
+828,Antonio Mohamed,71071,Atlético-MG,TEC,5.38,2.25,América-MG,mandante,8.0,6.6899999999999995
+829,Terans,102878,Athletico-PR,MEI,6.3,-0.2,Ceará,mandante,,6.3
+830,Dudu,68920,Palmeiras,ATA,12.1,0.0,Fluminense,mandante,0.5,6.3
+831,Vinícius Zanocelo,104521,Santos,MEI,10.45,4.0,Cuiabá,mandante,2.0,6.225
+832,Sorriso,111333,Bragantino,ATA,0.0,2.3,Corinthians,mandante,6.0,6.0
+833,0,84674,Bragantino,MEI,0.0,2.9,Corinthians,mandante,6.0,6.0
+834,Praxedes,107744,Bragantino,MEI,0.0,0.0,Corinthians,mandante,6.0,6.0
+835,Luan Cândido,100848,Bragantino,LAT,0.0,0.0,Corinthians,mandante,6.0,6.0
+836,Natan,107110,Bragantino,ZAG,0.0,0.0,Corinthians,mandante,6.0,6.0
+837,Mariano,38877,Atlético-MG,LAT,3.9,0.0,América-MG,mandante,8.0,5.95
+838,Godín,69299,Atlético-MG,ZAG,3.8,0.0,América-MG,mandante,8.0,5.9
+839,Abel Ferreira,110506,Palmeiras,TEC,10.65,0.0,Fluminense,mandante,0.5,5.575
+840,Bruno Tubarão,93637,Bragantino,ATA,5.1,1.2,Corinthians,mandante,6.0,5.55
+841,Morato,86227,Avaí,ATA,5.4,0.0,Coritiba,mandante,0.0,5.4
+842,Piquerez,102130,Palmeiras,LAT,10.3,0.0,Fluminense,mandante,0.5,5.4
+843,Ademir,101314,Atlético-MG,ATA,2.6,4.1,América-MG,mandante,8.0,5.3
+844,Nacho Fernández,94916,Atlético-MG,MEI,2.6,3.75,América-MG,mandante,8.0,5.3
+845,Vargas,69102,Atlético-MG,ATA,2.4,6.7,América-MG,mandante,8.0,5.2
+846,Alerrandro,101715,Bragantino,ATA,4.3,1.7,Corinthians,mandante,6.0,5.15
+847,Abner Vinícius,104513,Athletico-PR,LAT,5.1,-0.1,Ceará,mandante,,5.1
+848,Bento,105208,Athletico-PR,GOL,5.0,1.0,Ceará,mandante,,5.0
+849,Cleiton,93882,Bragantino,GOL,4.0,9.0,Corinthians,mandante,6.0,5.0
+850,Eduardo Sasha,70360,Atlético-MG,ATA,1.8,0.0,América-MG,mandante,8.0,4.9
+851,Guilherme Arana,87228,Atlético-MG,LAT,1.3,1.8,América-MG,mandante,8.0,4.65
+852,Miguel,105612,Bragantino,MEI,3.2,0.0,Corinthians,mandante,6.0,4.6
+853,Marcos Rocha,63013,Palmeiras,LAT,8.6,0.0,Fluminense,mandante,0.5,4.55
+854,Lomónaco,113203,Bragantino,ZAG,3.1,0.0,Corinthians,mandante,6.0,4.55
+855,Eduardo Barroca,77774,Avaí,TEC,4.46,2.43,Coritiba,mandante,0.0,4.46
+856,Marcos Leonardo,109497,Santos,ATA,6.9,10.9,Cuiabá,mandante,2.0,4.45
+857,Realpe,106299,Bragantino,ZAG,2.8,0.0,Corinthians,mandante,6.0,4.4
+858,Junior Alonso,88312,Atlético-MG,ZAG,0.6,1.2,América-MG,mandante,8.0,4.3
+859,Sávio,109463,Atlético-MG,ATA,0.5,0.0,América-MG,mandante,8.0,4.25
+860,Otávio,82463,Atlético-MG,MEI,0.4,-0.05,América-MG,mandante,8.0,4.2
+861,Lucas Pires,114374,Santos,LAT,6.4,-0.1,Cuiabá,mandante,2.0,4.2
+862,Rony,91607,Palmeiras,ATA,7.7,0.0,Fluminense,mandante,0.5,4.1
+863,Carlos Eduardo,90917,Bragantino,ATA,2.1,0.0,Corinthians,mandante,6.0,4.05
+864,Allan,96652,Atlético-MG,MEI,0.1,0.0,América-MG,mandante,8.0,4.05
+865,Maurício Barbieri,82792,Bragantino,TEC,2.0,6.4,Corinthians,mandante,6.0,4.0
+866,Raniele,95556,Avaí,MEI,3.8,3.1,Coritiba,mandante,0.0,3.8
+867,Lucas Halter,102253,Athletico-PR,ZAG,3.7,0.0,Ceará,mandante,,3.7
+868,Eric Ramires,103295,Bragantino,MEI,1.4,-2.0,Corinthians,mandante,6.0,3.7
+869,Maicon,71227,Santos,ZAG,5.25,1.3,Cuiabá,mandante,2.0,3.625
+870,Murilo,97653,Palmeiras,ZAG,6.6,0.0,Fluminense,mandante,0.5,3.55
+871,Léo Ortiz,97867,Bragantino,ZAG,1.0,7.2,Corinthians,mandante,6.0,3.5
+872,Weverson,109426,Bragantino,LAT,1.0,0.0,Corinthians,mandante,6.0,3.5
+873,Pedro Henrique,87225,Athletico-PR,ZAG,3.45,7.3,Ceará,mandante,,3.45
+874,Madson,78077,Santos,LAT,4.85,-1.0,Cuiabá,mandante,2.0,3.425
+875,Paulo Miranda,68817,Juventude,ZAG,3.6,-0.35,Internacional,mandante,3.0,3.3
+876,Jadsom Silva,103695,Bragantino,MEI,0.55,3.4,Corinthians,mandante,6.0,3.275
+877,Weverton,71631,Palmeiras,GOL,6.0,0.0,Fluminense,mandante,0.5,3.25
+878,Aderlan,88423,Bragantino,LAT,0.4,7.2,Corinthians,mandante,6.0,3.2
+879,Fabián Bustos,107645,Santos,TEC,4.325,2.11,Cuiabá,mandante,2.0,3.1625
+880,Óscar Ruíz,71691,Juventude,ATA,3.3,0.0,Internacional,mandante,3.0,3.15
+881,Ytalo,53148,Bragantino,ATA,0.15,9.7,Corinthians,mandante,6.0,3.075
+882,Ângelo,110415,Santos,ATA,4.05,0.0,Cuiabá,mandante,2.0,3.025
+883,Guilherme Parede,83438,Juventude,ATA,0.0,2.75,Internacional,mandante,3.0,3.0
+884,Chico,82407,Juventude,MEI,0.0,0.65,Internacional,mandante,3.0,3.0
+885,Bruninho,101716,Juventude,MEI,3.0,0.0,Internacional,mandante,3.0,3.0
+886,João Paulo,85425,Santos,GOL,4.0,0.0,Cuiabá,mandante,2.0,3.0
+887,Helinho,102598,Bragantino,ATA,-0.1,2.1,Corinthians,mandante,6.0,2.95
+888,Jadson,80129,Juventude,MEI,2.8,2.55,Internacional,mandante,3.0,2.9
+889,Fábio Carille,70696,Athletico-PR,TEC,2.885,0.0,Ceará,mandante,,2.885
+890,William Matheus,62130,Juventude,LAT,2.7,0.75,Internacional,mandante,3.0,2.85
+891,Gabriel Veron,103764,Palmeiras,ATA,5.1,0.0,Fluminense,mandante,0.5,2.8
+892,Kuscevic,98619,Palmeiras,ZAG,5.0,0.0,Fluminense,mandante,0.5,2.75
+893,Capixaba,94894,Juventude,ATA,2.4,0.65,Internacional,mandante,3.0,2.7
+894,Rodrigo Soares,86675,Juventude,LAT,2.3,-0.05,Internacional,mandante,3.0,2.65
+895,Orejuela,95352,Athletico-PR,LAT,2.65,2.8,Ceará,mandante,,2.65
+896,Baralhas,99440,Atlético-GO,MEI,4.3,2.85,Goiás,mandante,1.0,2.65
+897,Eduardo Baptista,87211,Juventude,TEC,2.27,1.285,Internacional,mandante,3.0,2.635
+898,Mayke,81150,Palmeiras,LAT,4.7,0.0,Fluminense,mandante,0.5,2.6
+899,Hyoran,85931,Bragantino,MEI,-1.0,9.8,Corinthians,mandante,6.0,2.5
+900,César,91422,Juventude,GOL,2.0,0.75,Internacional,mandante,3.0,2.5
+901,Ramon,101597,Bragantino,LAT,-1.0,3.3,Corinthians,mandante,6.0,2.5
+902,Eduardo Bauermann,86970,Santos,ZAG,3.0,0.0,Cuiabá,mandante,2.0,2.5
+903,Canobbio,102928,Athletico-PR,ATA,2.4,0.9,Ceará,mandante,,2.4
+904,Edson ,80370,Atlético-GO,MEI,3.7,0.0,Goiás,mandante,1.0,2.35
+905,Matheus Felipe,102310,Athletico-PR,ZAG,2.3,6.7,Ceará,mandante,,2.3
+906,Yuri Lima,90569,Juventude,MEI,1.5,1.0,Internacional,mandante,3.0,2.25
+907,Wanderson,86143,Atlético-GO,ZAG,3.1,0.4,Goiás,mandante,1.0,2.05
+908,Umberto Louzer,101077,Atlético-GO,TEC,3.0,2.52,Goiás,mandante,1.0,2.0
+909,Pitta,108133,Juventude,ATA,1.0,3.45,Internacional,mandante,3.0,2.0
+910,Lucas Barbosa,112886,Santos,MEI,0.0,0.0,Cuiabá,mandante,2.0,2.0
+911,Willian Maranhão,87262,Santos,MEI,0.0,-0.1,Cuiabá,mandante,2.0,2.0
+912,Velázquez,90012,Santos,ZAG,0.0,3.0,Cuiabá,mandante,2.0,2.0
+913,Marcos Guilherme,83266,Santos,ATA,1.9,0.0,Cuiabá,mandante,2.0,1.95
+914,Ricardo Bueno,69141,Juventude,ATA,0.9,0.0,Internacional,mandante,3.0,1.95
+915,Jean,89150,Juventude,MEI,0.9,1.9,Internacional,mandante,3.0,1.95
+916,Léo Pereira,106681,Atlético-GO,ATA,2.4,5.65,Goiás,mandante,1.0,1.7
+917,Rafael Forster,82764,Juventude,ZAG,0.3,2.0,Internacional,mandante,3.0,1.65
+918,Bressan,72491,Avaí,ZAG,1.5,3.15,Coritiba,mandante,0.0,1.5
+919,Jhojan Julio,100074,Santos,ATA,0.9,0.2,Cuiabá,mandante,2.0,1.45
+920,Léo Baptistão ,81161,Santos,ATA,0.85,3.8,Cuiabá,mandante,2.0,1.425
+921,Ricardo Goulart,68833,Santos,MEI,0.7,0.0,Cuiabá,mandante,2.0,1.35
+922,Jefferson,95220,Atlético-GO,LAT,1.5,0.55,Goiás,mandante,1.0,1.25
+923,Danilo,107231,Palmeiras,MEI,2.0,0.0,Fluminense,mandante,0.5,1.25
+924,Ronaldo,91101,Atlético-GO,GOL,1.5,3.0,Goiás,mandante,1.0,1.25
+925,Lucas Braga,99119,Santos,ATA,0.45,0.2,Cuiabá,mandante,2.0,1.225
+926,Christian,104502,Athletico-PR,MEI,1.2,0.6,Ceará,mandante,,1.2
+927,Pablo Siles,104715,Athletico-PR,MEI,1.1,0.0,Ceará,mandante,,1.1
+928,Douglas Friedrich,78584,Avaí,GOL,1.0,4.0,Coritiba,mandante,0.0,1.0
+929,Wellington Rato,82766,Atlético-GO,MEI,0.0,1.55,Goiás,mandante,1.0,1.0
+930,Churín,98289,Atlético-GO,ATA,0.0,-0.1,Goiás,mandante,1.0,1.0
+931,Bryan Angulo,89435,Santos,ATA,-0.1,0.0,Cuiabá,mandante,2.0,0.95
+932,Matheus Ribeiro,82943,Avaí,LAT,0.8,0.0,Coritiba,mandante,0.0,0.8
+933,Bryan García,110013,Athletico-PR,MEI,0.8,0.0,Ceará,mandante,,0.8
+934,Airton,106107,Atlético-GO,ATA,0.6,-0.4,Goiás,mandante,1.0,0.8
+935,Arrascaeta,87863,Flamengo,MEI,0.0,5.8,Botafogo,mandante,0.75,0.75
+936,Rodinei,73992,Flamengo,LAT,0.0,0.0,Botafogo,mandante,0.75,0.75
+937,Marinho,68952,Flamengo,ATA,0.0,4.3,Botafogo,mandante,0.75,0.75
+938,Thiago Maia,89637,Flamengo,MEI,0.0,0.7,Botafogo,mandante,0.75,0.75
+939,Gomes,107109,Flamengo,MEI,0.0,2.9,Botafogo,mandante,0.75,0.75
+940,Pedro,94583,Flamengo,ATA,0.0,3.8,Botafogo,mandante,0.75,0.75
+941,Willian Arão,78478,Flamengo,MEI,0.0,1.6,Botafogo,mandante,0.75,0.75
+942,Everton Ribeiro,51772,Flamengo,MEI,0.0,3.8,Botafogo,mandante,0.75,0.75
+943,Lázaro,110193,Flamengo,MEI,0.0,1.1,Botafogo,mandante,0.75,0.75
+944,David Luiz,52827,Flamengo,ZAG,0.0,0.0,Botafogo,mandante,0.75,0.75
+945,Isla,69345,Flamengo,LAT,0.0,-2.1,Botafogo,mandante,0.75,0.75
+946,Andreas Pereira,89274,Flamengo,MEI,0.0,1.4,Botafogo,mandante,0.75,0.75
+947,Filipe Luís,38750,Flamengo,LAT,0.0,0.0,Botafogo,mandante,0.75,0.75
+948,Matheus França,115100,Flamengo,MEI,0.0,0.0,Botafogo,mandante,0.75,0.75
+949,Hugo Souza,101574,Flamengo,GOL,0.0,0.0,Botafogo,mandante,0.75,0.75
+950,Gabriel,83257,Flamengo,ATA,0.0,0.7,Botafogo,mandante,0.75,0.75
+951,Paulo Sousa,89284,Flamengo,TEC,0.0,2.85,Botafogo,mandante,0.75,0.75
+952,Ramon Menezes,88087,Atlético-GO,ZAG,0.4,1.1,Goiás,mandante,1.0,0.7
+953,Atuesta ,96754,Palmeiras,MEI,0.9,0.0,Fluminense,mandante,0.5,0.7
+954,Vitor Mendes,104401,Juventude,ZAG,-1.7,0.0,Internacional,mandante,3.0,0.65
+955,Leandro Barcia,91242,Atlético-GO,ATA,0.3,0.0,Goiás,mandante,1.0,0.65
+956,Rodrigo Fernández,99214,Santos,MEI,-0.75,0.3,Cuiabá,mandante,2.0,0.625
+957,Vitinho,101960,Athletico-PR,ATA,0.6,2.6,Ceará,mandante,,0.6
+958,Jorginho,77544,Atlético-GO,MEI,0.1,6.95,Goiás,mandante,1.0,0.55
+959,Dudu,97133,Atlético-GO,LAT,0.1,0.05,Goiás,mandante,1.0,0.55
+960,Rafael Navarro,105770,Palmeiras,ATA,0.6,0.0,Fluminense,mandante,0.5,0.55
+961,Marcelo Cirino,69022,Athletico-PR,ATA,0.5,0.0,Ceará,mandante,,0.5
+962,Rickson,100002,Atlético-GO,MEI,-0.1,0.0,Goiás,mandante,1.0,0.45
+963,Shaylon,97520,Atlético-GO,MEI,-0.6,1.4,Goiás,mandante,1.0,0.2
+964,Wesley,105811,Palmeiras,ATA,-0.1,0.0,Fluminense,mandante,0.5,0.2
+965,Kevin,91888,Avaí,LAT,0.1,2.1,Coritiba,mandante,0.0,0.1
+966,Marlos,50879,Athletico-PR,MEI,-0.05,0.0,Ceará,mandante,,-0.05
+967,Rômulo ,89696,Avaí,ATA,-0.1,2.5,Coritiba,mandante,0.0,-0.1
+968,Pablo,69138,Athletico-PR,ATA,-0.3,0.0,Ceará,mandante,,-0.3
+969,Arthur Chaves,111412,Avaí,ZAG,-0.6,3.3,Coritiba,mandante,0.0,-0.6
+970,Dentinho,115806,Avaí,ATA,-1.0,0.9,Coritiba,mandante,0.0,-1.0
+971,Lucas Ventura,97856,Avaí,MEI,-2.0,0.0,Coritiba,mandante,0.0,-2.0
+972,Bruno Cortez,72079,Avaí,LAT,-2.1,3.0,Coritiba,mandante,0.0,-2.1
+973,Cuello,98909,Athletico-PR,ATA,0.0,0.2,Ceará,mandante,,
+974,Hugo Moura,101594,Athletico-PR,MEI,0.0,0.0,Ceará,mandante,,
+975,Léo Cittadini,70986,Athletico-PR,MEI,0.0,2.6,Ceará,mandante,,
+976,Pedro Rocha,90302,Athletico-PR,ATA,0.0,0.0,Ceará,mandante,,
+977,Vitor Roque,114802,Athletico-PR,ATA,0.0,0.5,Ceará,mandante,,

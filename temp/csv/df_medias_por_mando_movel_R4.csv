@@ -1,0 +1,417 @@
+,apelido,atleta_id,clube,posicao,media_casa,media_fora
+0,Abel Ferreira,110506,Palmeiras,TEC,5.955,7.445
+1,Acevedo,104783,Bahia,MEI,1.9,2.55
+2,Ademir,101314,Bahia,ATA,1.45,2.25
+3,Aderlan,88423,Bragantino,LAT,3.05,2.8
+4,Adriel,107748,Grêmio,GOL,9.0,0.0
+5,Adryelson,91664,Botafogo,ZAG,3.2,0.85
+6,Adson,111682,Corinthians,MEI,2.5,6.3
+7,Adyson,115998,América-MG,ATA,0.9,2.4
+8,Alan Empereur,88033,Cuiabá,ZAG,2.5,0.7
+9,Alan Patrick,68685,Internacional,MEI,1.7000000000000002,4.7
+10,Alef Manga,101254,Coritiba,ATA,8.45,3.65
+11,Alemão,98219,Internacional,ATA,0.3500000000000001,8.2
+12,Alerrandro,101715,Bragantino,ATA,0.2,0.0
+13,Alesson,97321,Goiás,ATA,1.2,0.0
+14,Alex Teixeira,60793,Vasco,MEI,4.7,2.6500000000000004
+15,Alexsander,118774,Fluminense,LAT,6.2,2.45
+16,Alison,73974,Santos,MEI,0.0,0.0
+17,Alisson,81845,São Paulo,MEI,3.35,2.6
+18,Allyson,124340,Cuiabá,ZAG,1.9,2.2
+19,Aloísio,73850,América-MG,ATA,14.3,4.1
+20,Alê,86388,América-MG,MEI,0.5000000000000001,14.8
+21,Andrey,93787,Coritiba,MEI,0.25,1.6
+22,Andrey Santos,109591,Vasco,MEI,2.4,7.45
+23,André,107498,Fluminense,MEI,3.1500000000000004,5.6
+24,André,121792,Grêmio,ATA,-0.15,1.7
+25,Andrés Hurtado,110715,Bragantino,LAT,2.1,0.9
+26,Antônio Carlos Zago,69029,Coritiba,TEC,5.25,3.05
+27,Apodi,51042,Goiás,LAT,5.3999999999999995,-0.1
+28,Arboleda,91573,São Paulo,ZAG,7.2,3.6
+29,Arias,99815,Fluminense,MEI,3.75,1.9
+30,Arthur Sales,111771,Bahia,ATA,1.55,1.1
+31,Artur,95799,Palmeiras,ATA,4.0,9.7
+32,Ayrton Lucas,88393,Flamengo,LAT,8.95,3.25
+33,Baralhas,99440,Internacional,MEI,0.9,4.15
+34,Battaglia,94845,Atlético-MG,MEI,0.9,2.9
+35,Bento,105208,Athletico-PR,GOL,5.0,1.75
+36,Benítez,93550,América-MG,MEI,6.6,1.6
+37,Biel,110760,Bahia,ATA,6.05,0.2
+38,Bitello,112140,Grêmio,MEI,6.550000000000001,3.3499999999999996
+39,Boschilia,86841,Coritiba,MEI,4.1,10.1
+40,Breno Lopes,93988,Palmeiras,ATA,0.5,0.0
+41,Bruninho,113558,Bragantino,MEI,7.05,6.2
+42,Bruno Alves,73620,Grêmio,ZAG,2.7,1.55
+43,Bruno Fuchs,104085,Atlético-MG,ZAG,0.0,4.7
+44,Bruno Gomes,106202,Coritiba,MEI,5.25,5.45
+45,Bruno Henrique,90285,Flamengo,ATA,1.05,0.0
+46,Bruno Melo,84339,Goiás,ZAG,0.5,1.05
+47,Bruno Mezenga,37865,Santos,ATA,0.0,1.2
+48,Bruno Méndez,103700,Corinthians,ZAG,-0.6,1.2
+49,Bruno Pacheco,90061,Fortaleza,LAT,5.3500000000000005,4.9
+50,Bruno Rodrigues,92811,Cruzeiro,ATA,7.9,9.05
+51,Bruno Uvini,70221,Grêmio,ZAG,1.6,0.0
+52,Bruno Viana,92291,Coritiba,ZAG,2.65,-1.6
+53,Bryan García,110013,Athletico-PR,MEI,0.0,0.0
+54,Brítez,101995,Fortaleza,ZAG,4.15,5.199999999999999
+55,Bustos,96678,Internacional,LAT,7.1,5.4
+56,Caio Alexandre,106323,Fortaleza,MEI,2.0999999999999996,9.85
+57,Caio Paulista,102318,São Paulo,LAT,8.15,6.3500000000000005
+58,Calebe,109461,Fortaleza,MEI,4.4,2.75
+59,Calleri,89840,São Paulo,ATA,8.2,10.1
+60,Cano,79631,Fluminense,ATA,5.550000000000001,4.7
+61,Canobbio,102928,Athletico-PR,ATA,0.0,-0.1
+62,Cantillo,85315,Corinthians,MEI,8.9,0.0
+63,Capasso,112913,Vasco,ZAG,0.0,0.0
+64,Carabajal,98723,Vasco,MEI,1.6,0.0
+65,Carlos de Pena,87242,Internacional,MEI,4.3500000000000005,3.9
+66,Cauly,123360,Bahia,MEI,7.050000000000001,3.05
+67,Ceppelini,72762,Cuiabá,MEI,0.9999999999999999,2.7
+68,Christian,104502,Athletico-PR,MEI,7.0,1.3
+69,Chrystian Barletta,107726,Corinthians,MEI,3.3,0.9
+70,Cleiton,93882,Bragantino,GOL,-3.0,0.0
+71,Cristaldo,89846,Grêmio,MEI,10.4,2.2
+72,Cássio,42234,Corinthians,GOL,-0.25,1.5
+73,Daniel,93791,Bahia,MEI,1.2,0.0
+74,Daniel Borges,73318,Botafogo,LAT,5.9,0.0
+75,Daniel Ruiz,116672,Santos,MEI,2.75,0.85
+76,Danilo Avelar,72142,América-MG,ZAG,-1.6,5.0
+77,Danilo Barbosa,86777,Botafogo,MEI,2.8,5.45
+78,Darlan,104593,Grêmio,MEI,0.2,0.0
+79,David Duarte,91772,Bahia,ZAG,4.75,6.0
+80,David Luiz,52827,Flamengo,ZAG,1.6,0.0
+81,Denilson,115986,Cuiabá,MEI,1.65,0.0
+82,Deyverson,92708,Cuiabá,ATA,2.3000000000000003,1.0
+83,Di Placido,98605,Botafogo,LAT,7.75,2.35
+84,Diego,101027,Goiás,MEI,4.05,3.9
+85,Diego Gonçalves,90540,Goiás,ATA,1.0,-0.04999999999999999
+86,Diego Rosa,107796,Bahia,MEI,1.65,0.45
+87,Diogo Barbosa,70916,Grêmio,LAT,5.65,0.29999999999999993
+88,Dodi,89883,Santos,MEI,0.35000000000000003,1.4
+89,Dodô,107375,Goiás,MEI,0.0,0.0
+90,Dorival Júnior,40990,São Paulo,TEC,8.3,4.85
+91,Du Queiroz,113687,Corinthians,MEI,-0.3,0.2
+92,Dudu,68920,Palmeiras,ATA,6.05,9.45
+93,Ed Carlos,118747,Santos,MEI,0.0,0.8
+94,Edenílson,63289,Atlético-MG,MEI,2.6,2.95
+95,Eduardo,68708,Botafogo,MEI,7.55,3.6500000000000004
+96,Eduardo Bauermann,86970,Santos,ZAG,6.7,2.5
+97,Eduardo Coudet,94853,Atlético-MG,TEC,4.85,4.32
+98,Eduardo Santos,106434,Bragantino,ZAG,1.75,2.8
+99,Eduardo Sasha,70360,Bragantino,ATA,5.5,6.2
+100,Emerson Negueba,112370,Cuiabá,ATA,2.0,1.4
+101,Emerson Ávila,50456,Goiás,TEC,4.89,2.215
+102,Emmanuel Martínez,103388,América-MG,MEI,0.25,3.3
+103,Endrick,115959,Palmeiras,ATA,7.5,3.25
+104,Eric Ramires,103295,Bragantino,MEI,-1.2,0.2
+105,Erick,98022,Athletico-PR,MEI,6.449999999999999,-0.55
+106,Erick Marcus,121184,Vasco,ATA,1.2,0.0
+107,Everaldo,78117,Bahia,ATA,1.25,5.1499999999999995
+108,Everaldo,91151,América-MG,ATA,5.6,9.7
+109,Everson,72294,Atlético-MG,GOL,-0.25,5.0
+110,Everton,86757,Flamengo,ATA,2.85,3.6999999999999997
+111,Everton Galdino,89918,Grêmio,ATA,4.45,5.2
+112,Everton Ribeiro,51772,Flamengo,MEI,3.6,3.8
+113,Fabinho,111760,Palmeiras,MEI,0.8,2.5
+114,Fabrício Bruno,90768,Flamengo,ZAG,6.95,2.15
+115,Fagner,42500,Corinthians,LAT,4.95,0.0
+116,Fausto Vera,107950,Corinthians,MEI,3.65,2.45
+117,Felipe Azevedo,60825,América-MG,ATA,1.2000000000000002,1.0
+118,Felipe Melo,38545,Fluminense,MEI,-0.55,0.0
+119,Fernandinho,72775,Athletico-PR,MEI,3.4,0.9
+120,Fernando Diniz,72391,Fluminense,TEC,6.025,7.295
+121,Fernando Lázaro,113429,Corinthians,TEC,5.72,0.0
+122,Fernando Miguel,71571,Fortaleza,GOL,1.5,9.0
+123,Fernando Sobral,84428,Cuiabá,MEI,2.1,2.8
+124,Figueiredo,106201,Vasco,MEI,0.9,0.6
+125,Filipe Augusto,79268,Cuiabá,MEI,0.9,3.05
+126,Fábio,37656,Fluminense,GOL,3.0,8.0
+127,Fábio Santos,38229,Corinthians,LAT,0.9,4.0
+128,Gabriel,70449,Coritiba,GOL,3.0,0.5
+129,Gabriel,83257,Flamengo,ATA,5.65,6.35
+130,Gabriel,98976,São Paulo,MEI,1.5499999999999998,1.2
+131,Gabriel Grando,112616,Grêmio,GOL,3.5,3.25
+132,Gabriel Inocêncio,93702,Santos,LAT,3.25,0.1
+133,Gabriel Menino,103767,Palmeiras,MEI,2.3,4.35
+134,Gabriel Pec,106199,Vasco,ATA,8.7,9.549999999999999
+135,Gabriel Pirani,110607,Fluminense,MEI,0.5,2.8
+136,Gabriel Pires,71898,Botafogo,MEI,8.6,0.0
+137,Gabriel Xavier,105373,Bahia,ZAG,3.8,0.9
+138,Galarza,108528,Vasco,MEI,0.0,0.0
+139,Ganso,62977,Fluminense,MEI,5.199999999999999,5.6
+140,Gerson,89256,Flamengo,MEI,5.8,8.9
+141,Gil,68923,Corinthians,ZAG,1.45,0.75
+142,Gilberto,61188,Cruzeiro,ATA,3.3499999999999996,5.6
+143,Giovani,111759,Palmeiras,ATA,0.8,0.0
+144,Giuliano,51548,Corinthians,MEI,0.9,0.45000000000000007
+145,Guga,101319,Fluminense,LAT,0.5,4.3
+146,Guilherme,94207,Fortaleza,ATA,2.4,11.7
+147,Guilherme Biro,111891,Corinthians,MEI,2.9,0.0
+148,Guilherme Marques,73781,Goiás,ATA,1.8,0.4
+149,Gustavinho,122394,Bragantino,MEI,2.5,-0.6
+150,Gustavo Campanharo,72497,Internacional,MEI,7.4,3.9
+151,Gustavo Garcia,107225,Palmeiras,LAT,0.9,4.0
+152,Gustavo Gómez,71684,Palmeiras,ZAG,1.2999999999999998,3.7
+153,Gustavo Martins,111309,Grêmio,ZAG,-0.7,0.0
+154,Gustavo Sauer,85993,Botafogo,ATA,-0.7,0.0
+155,Gustavo Vilar,111644,Coritiba,ZAG,0.0,0.0
+156,Helinho,102598,Bragantino,ATA,0.55,1.65
+157,Henrique Almeida,68773,América-MG,ATA,3.2,-0.3
+158,Henrique Dourado,81905,Cruzeiro,ATA,0.1,0.0
+159,Henry Mosquera,124239,Bragantino,ATA,2.0,-0.15000000000000002
+160,Hugo,109668,Botafogo,LAT,7.6,0.0
+161,Hugo Moura,101594,Athletico-PR,MEI,2.15,4.15
+162,Hulk,39148,Atlético-MG,ATA,12.850000000000001,2.9
+163,Hyoran,85931,Atlético-MG,MEI,1.8,1.6
+164,Hércules,116447,Fortaleza,MEI,7.949999999999999,2.3
+165,Iago Maidana,89226,América-MG,ZAG,-0.6,0.7
+166,Igor Gomes,104385,Internacional,ZAG,5.2,2.4
+167,Igor Jesus,116013,Flamengo,MEI,1.9,0.0
+168,Isaac,124247,Atlético-MG,ATA,-0.3,0.0
+169,Isidro Pitta,108133,Cuiabá,ATA,0.65,0.55
+170,Iury Castilho,89695,Cuiabá,ATA,0.3,4.6
+171,Ivo Vieira,121593,Cuiabá,TEC,3.25,4.505000000000001
+172,Jadsom Silva,103695,Bragantino,MEI,-0.25,2.8000000000000003
+173,Jair,81091,Vasco,MEI,1.9,3.9000000000000004
+174,Jamerson,116461,Coritiba,LAT,2.5999999999999996,3.85
+175,Jean Dias,73479,Internacional,ATA,3.45,0.4
+176,Jemerson,84263,Atlético-MG,ZAG,4.2,2.35
+177,Jhegson Méndez,94786,São Paulo,MEI,1.2,2.5
+178,Jhoanner Chávez,110021,Bahia,LAT,9.4,4.1
+179,Jhon Jhon,115248,Palmeiras,MEI,0.09999999999999998,-0.3
+180,Jhonny Lucas,99994,Goiás,MEI,0.8,-1.6
+181,John Kennedy,110759,Fluminense,ATA,0.65,12.15
+182,John Victor,94044,Internacional,GOL,7.0,4.0
+183,Johnny,106002,Internacional,MEI,1.6,4.1
+184,Jonathan Cafu,78580,Cuiabá,ATA,2.1500000000000004,4.25
+185,Jorge Sampaoli,70800,Flamengo,TEC,5.29,3.66
+186,José López,113103,Palmeiras,ATA,9.7,1.4
+187,José Welison,86859,Fortaleza,MEI,-0.3,0.0
+188,João Paulo,85425,Santos,GOL,6.5,1.5
+189,João Pedro,89273,Grêmio,LAT,15.4,4.6
+190,Juan Vojvoda,104754,Fortaleza,TEC,6.12,7.1450000000000005
+191,Julián Palacios,111996,Goiás,MEI,5.6,2.6
+192,Juninho,82381,América-MG,MEI,3.4,0.7
+193,Juninho Capixaba,94968,Bragantino,LAT,1.55,6.5
+194,Júnior Santos,101002,Botafogo,ATA,1.7,6.5
+195,Júnior Urso,71829,Coritiba,MEI,0.5,3.8
+196,Kaio César,118844,Coritiba,ATA,3.0,2.95
+197,Kannemann,87342,Grêmio,ZAG,7.7,1.45
+198,Kanu,98484,Bahia,ZAG,1.4,3.6500000000000004
+199,Kayky,111829,Bahia,ATA,0.8,0.0
+200,Keiller,93834,Internacional,GOL,2.0,6.0
+201,Keno,86485,Fluminense,ATA,-1.2,-0.35
+202,Khellven,105175,Athletico-PR,LAT,3.0,1.7
+203,Kuscevic,98619,Coritiba,ZAG,1.75,0.6
+204,Laquintana,103014,Bragantino,ATA,3.4,0.1
+205,Lelê,115915,Fluminense,ATA,-0.15,7.75
+206,Lima,96340,Fluminense,MEI,13.5,2.85
+207,Liziero,100761,Coritiba,MEI,1.4,2.4
+208,Luan,102909,São Paulo,MEI,1.1,1.2
+209,Luan Dias,107416,Santos,MEI,-1.6,0.0
+210,Lucas Beraldo,112136,São Paulo,ZAG,7.050000000000001,1.7
+211,Lucas Evangelista,84674,Bragantino,MEI,1.4,5.35
+212,Lucas Fernandes,94931,Botafogo,MEI,0.44999999999999996,0.2
+213,Lucas Halter,102253,Goiás,ZAG,1.9,2.9
+214,Lucas Kal,95662,América-MG,MEI,0.6,-0.1
+215,Lucas Lima,80583,Santos,MEI,4.9,0.5499999999999999
+216,Lucas Mugni,81121,Bahia,MEI,-0.3,0.0
+217,Lucas Perri,91260,Botafogo,GOL,5.5,6.0
+218,Lucas Pires,114374,Santos,LAT,4.9,4.7
+219,Lucas Piton,105584,Vasco,LAT,1.35,2.95
+220,Lucas Sasha,68991,Fortaleza,MEI,2.6500000000000004,3.75
+221,Lucas Silva,79701,Grêmio,MEI,0.9,4.2
+222,Lucca,122420,Internacional,ATA,1.2,-0.4
+223,Lucero,105568,Fortaleza,ATA,2.6,0.0
+224,Luciano,80287,São Paulo,ATA,7.35,4.5
+225,Luciano Castán,68942,Cruzeiro,ZAG,3.75,3.8
+226,Lucão,106160,Bragantino,GOL,0.5,-1.5
+227,Luis Guilherme,123713,Palmeiras,MEI,1.6,0.5
+228,Luis Henrique,105049,Botafogo,ATA,1.6,2.05
+229,Luis Suárez,69318,Grêmio,ATA,7.4,3.8499999999999996
+230,Luiz Adriano,72772,Internacional,ATA,1.15,0.8
+231,Luís Castro,88037,Botafogo,TEC,7.4,6.5
+232,Léo,85626,Vasco,ZAG,0.5,-0.45
+233,Léo Cittadini,70986,Athletico-PR,MEI,0.4,-0.9
+234,Léo Jardim,87008,Vasco,GOL,4.0,7.5
+235,Léo Pereira,83528,Flamengo,ZAG,16.65,0.9
+236,Machado,96089,Cruzeiro,MEI,3.65,3.0
+237,Madson,78077,Athletico-PR,LAT,5.5,1.9
+238,Maguinho,72532,Goiás,LAT,-2.1,0.24999999999999997
+239,Mano Menezes,37281,Internacional,TEC,6.8100000000000005,4.3
+240,Marcelo,38402,Fluminense,LAT,6.5,0.0
+241,Marcelo Rangel,82730,Goiás,GOL,-2.0,0.0
+242,Marcinho,93797,América-MG,LAT,2.3,0.0
+243,Marcos Felipe,85004,Bahia,GOL,1.0,7.25
+244,Marcos Leonardo,109497,Santos,ATA,6.75,5.95
+245,Marcos Paulo,103645,São Paulo,ATA,4.7,6.15
+246,Marcos Rocha,63013,Palmeiras,LAT,4.7,0.0
+247,Mariano,38877,Atlético-MG,LAT,1.05,2.6
+248,Marinho,68952,Flamengo,ATA,1.0999999999999999,0.25
+249,Marllon,70666,Cuiabá,ZAG,8.3,0.9500000000000001
+250,Marlon,86864,América-MG,LAT,-0.1499999999999999,5.45
+251,Marlon,91706,Cruzeiro,LAT,6.35,12.75
+252,Marlon Freitas,93790,Botafogo,MEI,4.5,0.0
+253,Marlon Gomes,111769,Vasco,MEI,2.8499999999999996,0.5499999999999999
+254,Mateus Gonçalves,103076,América-MG,ATA,-0.5,0.0
+255,Mateus Vital,93108,Cruzeiro,MEI,3.75,5.0
+256,Mateusinho,111879,Cuiabá,LAT,9.649999999999999,1.25
+257,Matheus Alexandre,103347,Cuiabá,LAT,0.0,2.7
+258,Matheus Araújo,105845,Corinthians,MEI,6.550000000000001,0.0
+259,Matheus Bahia,97899,Bahia,LAT,1.5,4.9
+260,Matheus Bidu,105531,Corinthians,LAT,2.45,5.8
+261,Matheus Cavichioli,72580,América-MG,GOL,3.85,0.0
+262,Matheus Dias,107809,Internacional,MEI,2.1,0.0
+263,Matheus Fernandes,94067,Bragantino,MEI,7.800000000000001,7.55
+264,Matheus França,115100,Flamengo,MEI,3.1999999999999997,3.5
+265,Matheus Jussa,91689,Cruzeiro,MEI,-1.0,0.0
+266,Matheus Nascimento,109114,Botafogo,ATA,8.7,0.0
+267,Matheus Peixoto,87098,Goiás,ATA,6.05,1.5
+268,Matheusinho,93886,América-MG,MEI,0.5,4.2
+269,Matheusinho,101725,Goiás,MEI,0.5,0.0
+270,Mauricio Lemos,87853,Atlético-MG,ZAG,6.25,3.0
+271,Maurício,105647,Internacional,MEI,10.049999999999999,1.1
+272,Maurício Barbieri,82792,Vasco,TEC,3.705,4.87
+273,Mayke,81150,Palmeiras,LAT,-2.5,3.4
+274,Mendoza,90031,Santos,ATA,20.8,3.8
+275,Mercado,72951,Internacional,ZAG,4.5,2.5
+276,Messias,87402,Santos,ZAG,5.3,1.25
+277,Michel Araújo,107173,São Paulo,MEI,3.6,1.8
+278,Miguelito,115025,Santos,MEI,2.0,0.5
+279,Mikael,102299,América-MG,ATA,0.7,2.4
+280,Mila,115671,Grêmio,MEI,2.1,-0.8
+281,Moisés,104666,Fortaleza,ATA,16.3,0.6
+282,Morelli,99412,Goiás,MEI,6.25,1.3
+283,Murillo,121821,Corinthians,ZAG,1.1,0.0
+284,Murilo,97653,Palmeiras,ZAG,6.6,-1.9
+285,Natan,107110,Bragantino,ZAG,2.3499999999999996,0.25
+286,Natanael,107554,Coritiba,LAT,10.600000000000001,2.75
+287,Nathan,87009,Grêmio,MEI,0.35,4.2
+288,Nathan,107676,Santos,LAT,3.5999999999999996,4.65
+289,Neto Moura,87742,Cruzeiro,MEI,1.05,0.8
+290,Nikão,69705,Cruzeiro,MEI,0.9,0.19999999999999996
+291,Nino,91708,Fluminense,ZAG,10.35,2.95
+292,Nino Paraíba,68808,América-MG,LAT,-0.55,2.95
+293,Odair Hellmann,92273,Santos,TEC,6.43,3.415
+294,Oliveira,94514,Cruzeiro,ZAG,0.29999999999999993,9.2
+295,Orellano,110776,Vasco,MEI,1.95,0.0
+296,Otávio,82463,Atlético-MG,MEI,1.65,2.0
+297,PK,91190,Cuiabá,LAT,-0.10000000000000009,4.5
+298,Pablo,69138,Athletico-PR,ATA,7.45,1.1
+299,Pablo Maia,113359,São Paulo,MEI,5.95,2.35
+300,Patrick,83433,Atlético-MG,MEI,1.45,2.3
+301,Patryck,106829,São Paulo,LAT,5.9,0.0
+302,Paulinho,69034,Corinthians,MEI,1.2,1.7
+303,Paulinho,99818,Atlético-MG,ATA,5.85,2.0
+304,Paulo Turra,82747,Athletico-PR,TEC,6.955,2.4699999999999998
+305,Pavón,91908,Atlético-MG,ATA,2.4000000000000004,2.0
+306,Pedrinho,98706,Atlético-MG,MEI,0.0,0.0
+307,Pedrinho,110995,Athletico-PR,LAT,5.699999999999999,0.55
+308,Pedro,94583,Flamengo,ATA,5.8,3.4
+309,Pedro,123022,Corinthians,ATA,1.0,2.6
+310,Pedro Caixinha,117711,Bragantino,TEC,3.91,4.055
+311,Pedro Henrique,72583,Internacional,ATA,2.7,0.24999999999999997
+312,Pedro Henrique,87225,Athletico-PR,ZAG,6.3,3.4
+313,Pedro Raul,98225,Vasco,ATA,5.1000000000000005,4.8
+314,Pepa,123907,Cruzeiro,TEC,6.65,7.415
+315,Piquerez,102130,Palmeiras,LAT,-1.4,10.65
+316,Pochettino,99267,Fortaleza,MEI,3.0999999999999996,1.25
+317,Puma Rodríguez,99213,Vasco,LAT,4.1,2.0
+318,Rafael,68928,São Paulo,GOL,10.0,0.5
+319,Rafael,70171,Botafogo,LAT,0.6,3.5
+320,Rafael Bilu,103576,Cruzeiro,ATA,2.25,1.9
+321,Rafael Cabral,68940,Cruzeiro,GOL,6.75,7.0
+322,Rafael Navarro,105770,Palmeiras,ATA,1.8,9.8
+323,Rafinha,38144,São Paulo,LAT,5.8,3.75
+324,Ramiro,78715,Cruzeiro,MEI,4.45,4.4
+325,Raniele,95556,Cuiabá,MEI,1.8,8.25
+326,Raphael Veiga,94509,Palmeiras,MEI,15.1,12.8
+327,Raí Ramos,90232,São Paulo,LAT,6.1,2.8
+328,Realpe,106299,Bragantino,ZAG,-0.6,0.0
+329,Reinaldo,104420,Athletico-PR,ATA,1.7,0.0
+330,Renato Gaúcho,41929,Grêmio,TEC,6.715,4.365
+331,Renato Paiva,110818,Bahia,TEC,4.905,5.885
+332,Renê,78445,Internacional,LAT,5.3,5.35
+333,Rezende,90449,Bahia,MEI,3.35,3.1
+334,Ricardo Silva,79334,América-MG,ZAG,0.0,0.9
+335,Richard Coelho,86711,Cruzeiro,MEI,3.3,6.2
+336,Richard Ríos,107111,Palmeiras,MEI,0.0,3.1
+337,Robson,84817,Coritiba,ATA,0.44999999999999996,0.4
+338,Robson Bambu,101579,Vasco,ZAG,1.65,2.0
+339,Rodrigo,111766,Vasco,MEI,0.0,3.3499999999999996
+340,Rodrigo Fernández,99214,Santos,MEI,2.85,1.55
+341,Rodrigo Nestor,106822,São Paulo,MEI,2.4000000000000004,7.3999999999999995
+342,Rodrigo Pinho,86799,Coritiba,ATA,2.25,1.6
+343,Romarinho,84523,Fortaleza,ATA,0.0,1.5
+344,Ronald Lopes,100969,Cuiabá,MEI,0.6,11.4
+345,Roni,105585,Corinthians,MEI,1.55,-0.1
+346,Rony,91607,Palmeiras,ATA,0.0,1.1
+347,Rubens,110727,Atlético-MG,LAT,5.300000000000001,7.8
+348,Rwan,115404,Vasco,ATA,-0.6,3.5
+349,Réver,52253,Atlético-MG,ZAG,-1.0,0.0
+350,Róger Guedes,89898,Corinthians,ATA,8.75,8.6
+351,Rômulo,107197,Athletico-PR,ATA,0.55,0.65
+352,Samuel Xavier,73384,Fluminense,LAT,3.85,10.2
+353,Sander,86391,Goiás,LAT,9.0,2.5
+354,Santos,69012,Flamengo,GOL,4.25,0.5
+355,Saravia,96725,Atlético-MG,LAT,3.05,5.3
+356,Segovia,100453,Botafogo,ZAG,0.0,0.0
+357,Segovia,110055,Botafogo,MEI,1.45,3.9
+358,Sidimar,69189,Goiás,ZAG,-0.8,0.9
+359,Silvio Romero,79188,Fortaleza,ATA,0.0,6.5
+360,Sorriso,111333,Bragantino,ATA,1.2,1.7
+361,Soteldo,87258,Santos,ATA,7.7,2.4
+362,Tadeu,82453,Goiás,GOL,0.5,3.0
+363,Talisson,122393,Bragantino,ATA,3.8,0.0
+364,Tchê Tchê,86686,Botafogo,MEI,2.5999999999999996,7.6
+365,Terans,102878,Athletico-PR,MEI,3.9,1.6
+366,Thaciano,87470,Bahia,MEI,5.2,9.75
+367,Thiago Andrade,109404,Athletico-PR,ATA,2.5,0.4
+368,Thiago Borbas,117314,Bragantino,ATA,1.5,7.75
+369,Thiago Galhardo,71844,Fortaleza,ATA,5.1,0.0
+370,Thiago Heleno,38394,Athletico-PR,ZAG,2.2,2.3
+371,Thiago Maia,89637,Flamengo,MEI,3.35,1.7999999999999998
+372,Thiago Santos,78855,Fluminense,MEI,0.6499999999999999,0.2
+373,Thomas Luciano,111819,Grêmio,LAT,5.15,0.5
+374,Tinga,82628,Fortaleza,LAT,2.95,5.1
+375,Tiquinho Soares,84042,Botafogo,ATA,5.449999999999999,13.55
+376,Titi,50353,Fortaleza,ZAG,1.35,4.75
+377,Vagner Mancini,39850,América-MG,TEC,2.705,4.125
+378,Vanderlan,107236,Palmeiras,LAT,7.0,0.0
+379,Vanderlei Luxemburgo,41327,Corinthians,TEC,4.04,0.0
+380,Victor Hugo,116034,Flamengo,MEI,3.25,1.2
+381,Victor Luis,86410,Coritiba,LAT,2.4,-0.7500000000000001
+382,Victor Sá,108946,Botafogo,ATA,17.5,3.5999999999999996
+383,Vidal,69375,Flamengo,MEI,3.7,4.7
+384,Villasanti,97145,Grêmio,MEI,2.9,0.0
+385,Vina,71162,Grêmio,MEI,-0.4,6.050000000000001
+386,Vinicius,68917,Goiás,ATA,4.550000000000001,5.35
+387,Vitor Bueno,87552,Athletico-PR,MEI,3.9,5.45
+388,Vitor Jacaré,101201,Bahia,ATA,5.699999999999999,8.65
+389,Vitor Mendes,104401,Fluminense,ZAG,5.0,4.9
+390,Vitor Roque,114802,Athletico-PR,ATA,6.85,5.75
+391,Vitão,97900,Internacional,ZAG,3.9000000000000004,0.6
+392,Víctor Cuesta,79113,Botafogo,ZAG,5.4,0.55
+393,Wallisson,101405,Cruzeiro,MEI,0.0,0.0
+394,Walter,51413,Cuiabá,GOL,1.0,2.0
+395,Wanderson,93478,Internacional,ATA,11.7,6.050000000000001
+396,Wellington Paulista,38279,América-MG,ATA,2.9,0.0
+397,Wellington Rato,82766,São Paulo,MEI,0.19999999999999996,2.8499999999999996
+398,Wellington Silva,68895,Cuiabá,ATA,0.85,0.0
+399,Wesley,105811,Cruzeiro,ATA,15.7,1.4
+400,Wesley,115239,Flamengo,LAT,2.8000000000000003,3.4
+401,Weverton,71631,Palmeiras,GOL,1.5,4.0
+402,William,89275,Cruzeiro,LAT,7.45,5.95
+403,William Pottker,77809,Coritiba,ATA,0.5,2.1
+404,Willian Farias,63058,Coritiba,MEI,2.35,2.6
+405,Yago Felipe,87747,Bahia,MEI,1.25,2.2
+406,Yago Pikachu,80196,Fortaleza,MEI,1.35,8.0
+407,Yuri Alberto,100652,Corinthians,ATA,5.6,1.0
+408,Zaracho,100079,Atlético-MG,MEI,-0.09999999999999999,3.95
+409,Zinho,123153,Grêmio,ATA,4.95,0.55
+410,Zé Ivaldo,91866,Athletico-PR,ZAG,5.0,-0.6
+411,Zé Rafael,82455,Palmeiras,MEI,6.949999999999999,4.449999999999999
+412,Zé Ricardo,102911,Goiás,MEI,4.5,2.9
+413,Ángel Romero,88323,Corinthians,ATA,1.7,0.2
+414,Ângelo,110415,Santos,ATA,2.9,5.55
+415,Éder,91203,América-MG,ZAG,2.0,-0.5

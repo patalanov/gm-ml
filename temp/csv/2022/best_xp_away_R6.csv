@@ -1,0 +1,242 @@
+,apelido,atleta_id,clube,posicao,media_casa,media_fora,adversário,mando,media_cedidos,XP_visitante
+1205,Sidnei,50297,Goiás,ZAG,4.85,0.0,Flamengo,visitante,7.75,7.75
+1206,Matheus Alves,91712,Goiás,GOL,-1.0,0.0,Flamengo,visitante,7.75,7.75
+1207,Juan Pablo,114497,Goiás,LAT,5.8,0.0,Flamengo,visitante,7.75,7.75
+1208,Rony,91607,Palmeiras,ATA,3.6000000000000005,9.5,Juventude,visitante,5.0,7.25
+1209,Lucas Ventura,97856,Avaí,MEI,-2.0,0.0,Athletico-PR,visitante,7.066666666666666,7.066666666666666
+1210,Matheus Ribeiro,82943,Avaí,LAT,0.8,0.0,Athletico-PR,visitante,7.066666666666666,7.066666666666666
+1211,Renato,39572,Avaí,MEI,-0.1,0.0,Athletico-PR,visitante,7.066666666666666,7.066666666666666
+1212,Igor Paixão,104530,Coritiba,ATA,7.85,9.166666666666666,Atlético-GO,visitante,4.8999999999999995,7.033333333333333
+1213,Gatito Fernández,74061,Botafogo,GOL,2.0,13.0,América-MG,visitante,1.0,7.0
+1214,Pedro Raul,98225,Goiás,ATA,3.466666666666667,6.25,Flamengo,visitante,7.75,7.0
+1215,Elvis,73347,Goiás,MEI,9.9,5.8,Flamengo,visitante,7.75,6.775
+1216,Sidimar,69189,Goiás,ZAG,6.1,5.7,Flamengo,visitante,7.75,6.725
+1217,Muriqui,38225,Avaí,ATA,8.375,6.0,Athletico-PR,visitante,7.066666666666666,6.533333333333333
+1218,Vitão,97900,Internacional,ZAG,0.4,8.2,Cuiabá,visitante,4.5,6.35
+1219,Raniele,95556,Avaí,MEI,4.8500000000000005,5.2,Athletico-PR,visitante,7.066666666666666,6.133333333333333
+1220,Erison,108422,Botafogo,ATA,4.3999999999999995,11.066666666666668,América-MG,visitante,1.0,6.033333333333334
+1221,Bressan,72491,Avaí,ZAG,2.4499999999999997,5.0,Athletico-PR,visitante,7.066666666666666,6.033333333333333
+1222,Ganso,62977,Fluminense,MEI,2.5,6.2,Fortaleza,visitante,5.75,5.975
+1223,Jair Ventura,92180,Goiás,TEC,3.6733333333333333,4.19,Flamengo,visitante,7.75,5.970000000000001
+1224,Tadeu,82453,Goiás,GOL,4.833333333333333,4.166666666666667,Flamengo,visitante,7.75,5.958333333333334
+1225,Vargas,69102,Atlético-MG,ATA,1.75,7.65,Bragantino,visitante,3.9,5.775
+1226,Matheus Martins,111831,Fluminense,ATA,0.4,0.0,Fortaleza,visitante,5.75,5.75
+1227,Martinelli,109573,Fluminense,MEI,1.0,0.0,Fortaleza,visitante,5.75,5.75
+1228,Cris Silva,89668,Fluminense,LAT,8.9,5.7,Fortaleza,visitante,5.75,5.725
+1229,Arthur Chaves,111412,Avaí,ZAG,1.875,4.35,Athletico-PR,visitante,7.066666666666666,5.708333333333333
+1230,Fabrício,105171,Coritiba,ATA,4.3999999999999995,6.35,Atlético-GO,visitante,4.8999999999999995,5.625
+1231,Bruno Silva,68698,Avaí,MEI,3.625,4.15,Athletico-PR,visitante,7.066666666666666,5.608333333333333
+1232,Eduardo Barroca,77774,Avaí,TEC,4.24,4.12,Athletico-PR,visitante,7.066666666666666,5.593333333333334
+1233,Diego,101027,Goiás,MEI,1.6666666666666667,3.4333333333333336,Flamengo,visitante,7.75,5.591666666666667
+1234,Caetano,103575,Goiás,ZAG,3.0999999999999996,3.4,Flamengo,visitante,7.75,5.575
+1235,Mercado,72951,Internacional,ZAG,2.766666666666667,6.65,Cuiabá,visitante,4.5,5.575
+1236,Mariano,38877,Atlético-MG,LAT,3.9,7.2,Bragantino,visitante,3.9,5.55
+1237,Zaracho,100079,Atlético-MG,MEI,4.566666666666667,7.1000000000000005,Bragantino,visitante,3.9,5.5
+1238,Manoel,69014,Fluminense,ZAG,2.1500000000000004,5.2,Fortaleza,visitante,5.75,5.475
+1239,Rodrigo Moledo,63354,Internacional,ZAG,5.25,6.4,Cuiabá,visitante,4.5,5.45
+1240,Reynaldo,97768,Goiás,ZAG,0.9500000000000001,3.1,Flamengo,visitante,7.75,5.425
+1241,Pedro Henrique,72583,Internacional,ATA,1.6,6.3,Cuiabá,visitante,4.5,5.4
+1242,Dadá Belmonte,94263,Goiás,ATA,0.4666666666666666,3.0500000000000003,Flamengo,visitante,7.75,5.4
+1243,Ademir,101314,Atlético-MG,ATA,4.7,6.8999999999999995,Bragantino,visitante,3.9,5.3999999999999995
+1244,Nonato,100987,Fluminense,MEI,2.25,5.0,Fortaleza,visitante,5.75,5.375
+1245,Rafael Navarro,105770,Palmeiras,ATA,2.05,5.7,Juventude,visitante,5.0,5.35
+1246,Morato,86227,Avaí,ATA,6.525,3.6,Athletico-PR,visitante,7.066666666666666,5.333333333333333
+1247,Abel Braga,40006,Fluminense,TEC,4.135,4.9,Fortaleza,visitante,5.75,5.325
+1248,Renê,78445,Internacional,LAT,4.533333333333333,6.1,Cuiabá,visitante,4.5,5.3
+1249,Danilo Barcelos,84382,Goiás,LAT,-1.55,2.733333333333333,Flamengo,visitante,7.75,5.241666666666666
+1250,Hulk,39148,Atlético-MG,ATA,10.0,6.5,Bragantino,visitante,3.9,5.2
+1251,Luiz Henrique,109282,Fluminense,ATA,3.266666666666667,4.566666666666667,Fortaleza,visitante,5.75,5.158333333333333
+1252,Matheus Sales,89285,Goiás,MEI,0.6499999999999999,2.5,Flamengo,visitante,7.75,5.125
+1253,Zé Rafael,82455,Palmeiras,MEI,8.175,5.1,Juventude,visitante,5.0,5.05
+1254,Douglas Friedrich,78584,Avaí,GOL,2.5,3.0,Athletico-PR,visitante,7.066666666666666,5.033333333333333
+1255,Calegari,104276,Fluminense,LAT,4.15,4.3,Fortaleza,visitante,5.75,5.025
+1256,Maguinho,72532,Goiás,LAT,2.4,2.2666666666666666,Flamengo,visitante,7.75,5.008333333333333
+1257,Léo Gamalho,53865,Coritiba,ATA,9.700000000000001,5.1,Atlético-GO,visitante,4.8999999999999995,5.0
+1258,Gustavo Garcia,107225,Palmeiras,LAT,5.0,0.0,Juventude,visitante,5.0,5.0
+1259,Vanderlan,107236,Palmeiras,LAT,4.6,0.0,Juventude,visitante,5.0,5.0
+1260,Mayke,81150,Palmeiras,LAT,2.425,0.0,Juventude,visitante,5.0,5.0
+1261,Kuscevic,98619,Palmeiras,ZAG,5.0,0.0,Juventude,visitante,5.0,5.0
+1262,Weverton,71631,Palmeiras,GOL,4.0,5.0,Juventude,visitante,5.0,5.0
+1263,Jorge,88065,Palmeiras,LAT,0.7333333333333334,0.0,Juventude,visitante,5.0,5.0
+1264,Breno Lopes,93988,Palmeiras,ATA,0.6,0.0,Juventude,visitante,5.0,5.0
+1265,Giovani,111759,Palmeiras,ATA,0.2,0.0,Juventude,visitante,5.0,5.0
+1266,Bruno Cortez,72079,Avaí,LAT,2.8,2.8,Athletico-PR,visitante,7.066666666666666,4.933333333333334
+1267,Kevin,91888,Avaí,LAT,2.1,2.8,Athletico-PR,visitante,7.066666666666666,4.933333333333334
+1268,Neilton,83772,Coritiba,ATA,1.6,0.0,Atlético-GO,visitante,4.8999999999999995,4.8999999999999995
+1269,Warley,104646,Coritiba,LAT,4.55,0.0,Atlético-GO,visitante,4.8999999999999995,4.8999999999999995
+1270,Hugo,116056,Coritiba,ATA,0.6,0.0,Atlético-GO,visitante,4.8999999999999995,4.8999999999999995
+1271,Murilo,97653,Palmeiras,ZAG,4.425,4.7,Juventude,visitante,5.0,4.85
+1272,Marcos Rocha,63013,Palmeiras,LAT,3.1666666666666665,4.7,Juventude,visitante,5.0,4.85
+1273,Carlos de Pena,87242,Internacional,ATA,0.7333333333333333,5.2,Cuiabá,visitante,4.5,4.85
+1274,Mano Menezes,37281,Internacional,TEC,5.085,5.145,Cuiabá,visitante,4.5,4.8225
+1275,Rômulo ,89696,Avaí,ATA,0.6666666666666666,2.5,Athletico-PR,visitante,7.066666666666666,4.783333333333333
+1276,Egídio,42145,Coritiba,LAT,10.799999999999999,4.65,Atlético-GO,visitante,4.8999999999999995,4.775
+1277,Bissoli,100762,Avaí,ATA,7.300000000000001,2.45,Athletico-PR,visitante,7.066666666666666,4.758333333333333
+1278,Apodi,51042,Goiás,MEI,7.0,1.7333333333333334,Flamengo,visitante,7.75,4.741666666666667
+1279,Fábio,37656,Fluminense,GOL,3.3333333333333335,3.6666666666666665,Fortaleza,visitante,5.75,4.708333333333333
+1280,Gustavo Gómez,71684,Palmeiras,ZAG,6.875,4.4,Juventude,visitante,5.0,4.7
+1281,Nathan,87009,Fluminense,MEI,0.29999999999999993,3.6,Fortaleza,visitante,5.75,4.675
+1282,Abel Ferreira,110506,Palmeiras,TEC,6.2075000000000005,4.26,Juventude,visitante,5.0,4.63
+1283,Nino,91708,Fluminense,ZAG,5.233333333333333,3.5,Fortaleza,visitante,5.75,4.625
+1284,D'Alessandro,62023,Internacional,MEI,6.4,0.0,Cuiabá,visitante,4.5,4.5
+1285,Moisés,90444,Internacional,LAT,-0.1,0.0,Cuiabá,visitante,4.5,4.5
+1286,Estevão,117870,Internacional,MEI,-0.6,0.0,Cuiabá,visitante,4.5,4.5
+1287,Johnny,106002,Internacional,MEI,1.0,0.0,Cuiabá,visitante,4.5,4.5
+1288,Cauan de Almeida,107870,Internacional,TEC,3.97,0.0,Cuiabá,visitante,4.5,4.5
+1289,Bustos,96678,Internacional,LAT,3.6999999999999997,4.433333333333333,Cuiabá,visitante,4.5,4.466666666666667
+1290,Antonio Mohamed,71071,Atlético-MG,TEC,6.0375,5.025,Bragantino,visitante,3.9,4.4625
+1291,Andrey,93787,Coritiba,MEI,14.533333333333333,4.0,Atlético-GO,visitante,4.8999999999999995,4.449999999999999
+1292,Edenílson,63289,Internacional,MEI,5.85,4.366666666666666,Cuiabá,visitante,4.5,4.433333333333334
+1293,Hugo,107908,Goiás,LAT,-0.1,1.0999999999999999,Flamengo,visitante,7.75,4.425
+1294,João Ricardo,81881,Ceará,GOL,0.8333333333333334,7.1,Santos,visitante,1.7333333333333334,4.416666666666666
+1295,Gustavo Morínigo,88881,Coritiba,TEC,7.56,3.9033333333333338,Atlético-GO,visitante,4.8999999999999995,4.401666666666666
+1296,Guilherme Arana,87228,Atlético-MG,LAT,4.433333333333334,4.9,Bragantino,visitante,3.9,4.4
+1297,Copete,77959,Avaí,ATA,0.4,1.7000000000000002,Athletico-PR,visitante,7.066666666666666,4.383333333333333
+1298,Dentinho,115806,Avaí,ATA,-0.6666666666666666,1.7000000000000002,Athletico-PR,visitante,7.066666666666666,4.383333333333333
+1299,Willian Farias,63058,Coritiba,MEI,4.933333333333333,3.8333333333333335,Atlético-GO,visitante,4.8999999999999995,4.366666666666666
+1300,Eduardo,91688,Avaí,MEI,3.3,1.5,Athletico-PR,visitante,7.066666666666666,4.283333333333333
+1301,Alemão,98219,Internacional,ATA,3.3666666666666667,4.0,Cuiabá,visitante,4.5,4.25
+1302,Daniel,96468,Internacional,GOL,4.666666666666667,4.0,Cuiabá,visitante,4.5,4.25
+1303,Nicolas,72524,Goiás,ATA,-0.55,0.7000000000000001,Flamengo,visitante,7.75,4.225
+1304,Nathan Silva,95794,Atlético-MG,ZAG,5.95,4.55,Bragantino,visitante,3.9,4.225
+1305,Cano,79631,Fluminense,ATA,9.966666666666667,2.6999999999999997,Fortaleza,visitante,5.75,4.225
+1306,Matheus Alexandre,103347,Coritiba,LAT,5.966666666666666,3.5333333333333337,Atlético-GO,visitante,4.8999999999999995,4.216666666666667
+1307,Nacho Fernández,94916,Atlético-MG,MEI,8.133333333333333,4.3,Bragantino,visitante,3.9,4.1
+1308,Fernando Diniz,72391,Fluminense,TEC,4.2,2.43,Fortaleza,visitante,5.75,4.09
+1309,Jean Cléber,73858,Avaí,MEI,0.050000000000000044,1.1,Athletico-PR,visitante,7.066666666666666,4.083333333333333
+1310,William Pottker,77809,Avaí,ATA,0.45,1.1,Athletico-PR,visitante,7.066666666666666,4.083333333333333
+1311,Da Silva,107251,Goiás,ZAG,3.0999999999999996,0.39999999999999997,Flamengo,visitante,7.75,4.075
+1312,Guga,101319,Atlético-MG,LAT,5.933333333333334,4.2,Bragantino,visitante,3.9,4.05
+1313,Jean Pyerre,98832,Avaí,MEI,-0.19999999999999996,1.0,Athletico-PR,visitante,7.066666666666666,4.033333333333333
+1314,Caio,101601,Goiás,MEI,1.85,0.3,Flamengo,visitante,7.75,4.025
+1315,Raphael Veiga,94509,Palmeiras,MEI,9.325,3.0,Juventude,visitante,5.0,4.0
+1316,Junior Alonso,88312,Atlético-MG,ZAG,5.4750000000000005,4.1,Bragantino,visitante,3.9,4.0
+1317,Fellipe Bastos,70116,Goiás,MEI,1.8666666666666665,0.13333333333333333,Flamengo,visitante,7.75,3.941666666666667
+1318,Sávio,109463,Atlético-MG,ATA,0.55,0.0,Bragantino,visitante,3.9,3.9
+1319,Fábio Gomes,100641,Atlético-MG,ATA,1.0,0.0,Bragantino,visitante,3.9,3.9
+1320,Calebe,109461,Atlético-MG,MEI,0.0,0.0,Bragantino,visitante,3.9,3.9
+1321,Réver,52253,Atlético-MG,ZAG,0.4,0.0,Bragantino,visitante,3.9,3.9
+1322,Keno,86485,Atlético-MG,ATA,2.1333333333333333,0.0,Bragantino,visitante,3.9,3.9
+1323,Godín,69299,Atlético-MG,ZAG,3.8,0.0,Bragantino,visitante,3.9,3.9
+1324,Caio Paulista,102318,Fluminense,ATA,-0.1,2.033333333333333,Fortaleza,visitante,5.75,3.8916666666666666
+1325,Pineida,87838,Fluminense,LAT,-0.8,1.9999999999999998,Fortaleza,visitante,5.75,3.875
+1326,Victor Sá,108946,Botafogo,ATA,2.1,6.666666666666667,América-MG,visitante,1.0,3.8333333333333335
+1327,Auremir,77570,Goiás,MEI,-0.25,-0.1,Flamengo,visitante,7.75,3.825
+1328,Piquerez,102130,Palmeiras,LAT,6.65,2.6,Juventude,visitante,5.0,3.8
+1329,Adrián Martínez,104778,Coritiba,ATA,1.1,2.5333333333333337,Atlético-GO,visitante,4.8999999999999995,3.716666666666667
+1330,Mendoza,90031,Ceará,ATA,2.766666666666667,5.65,Santos,visitante,1.7333333333333334,3.691666666666667
+1331,Wellington,62129,Fluminense,MEI,5.6,1.6,Fortaleza,visitante,5.75,3.675
+1332,Marlon,91706,Fluminense,LAT,-2.3,1.6,Fortaleza,visitante,5.75,3.675
+1333,Luan,63219,Goiás,MEI,-0.4,-0.4,Flamengo,visitante,7.75,3.675
+1334,Yago Felipe,87747,Fluminense,MEI,0.6000000000000001,1.5666666666666667,Fortaleza,visitante,5.75,3.658333333333333
+1335,Rodrigo Dourado,78865,Internacional,MEI,1.85,2.75,Cuiabá,visitante,4.5,3.625
+1336,Val,98306,Coritiba,MEI,-0.1,2.35,Atlético-GO,visitante,4.8999999999999995,3.625
+1337,Alex Muralha,79066,Coritiba,GOL,4.166666666666667,2.3333333333333335,Atlético-GO,visitante,4.8999999999999995,3.6166666666666663
+1338,Luccas Claro,73465,Fluminense,ZAG,1.7000000000000002,1.4,Fortaleza,visitante,5.75,3.575
+1339,Luciano,80287,São Paulo,ATA,5.833333333333333,7.6,Corinthians,visitante,-0.5,3.55
+1340,David Braz,50317,Fluminense,ZAG,1.3333333333333333,1.3,Fortaleza,visitante,5.75,3.525
+1341,Dudu,68920,Palmeiras,ATA,6.949999999999999,2.0,Juventude,visitante,5.0,3.5
+1342,Everson,72294,Atlético-MG,GOL,4.25,3.0,Bragantino,visitante,3.9,3.45
+1343,Hugo,109668,Botafogo,LAT,3.0999999999999996,5.8,América-MG,visitante,1.0,3.4
+1344,Renato Junior,108741,Goiás,ATA,0.85,-1.0,Flamengo,visitante,7.75,3.375
+1345,Clayton,106931,Coritiba,ATA,0.2,1.8,Atlético-GO,visitante,4.8999999999999995,3.3499999999999996
+1346,Vinícius Leite,93646,Avaí,MEI,4.0,-0.4,Athletico-PR,visitante,7.066666666666666,3.333333333333333
+1347,Guillermo de los Santos,87238,Coritiba,ZAG,5.0,1.7,Atlético-GO,visitante,4.8999999999999995,3.3
+1348,Gabriel Veron,103764,Palmeiras,ATA,3.0,1.5,Juventude,visitante,5.0,3.25
+1349,Guilherme Biro,107555,Coritiba,LAT,-0.2,1.5,Atlético-GO,visitante,4.8999999999999995,3.1999999999999997
+1350,Alan Patrick,68685,Internacional,MEI,11.9,1.6,Cuiabá,visitante,4.5,3.05
+1351,Alef Manga,101254,Coritiba,ATA,4.5,1.1666666666666667,Atlético-GO,visitante,4.8999999999999995,3.033333333333333
+1352,Boschilia,86841,Internacional,MEI,3.8,1.55,Cuiabá,visitante,4.5,3.025
+1353,Lucas Ribeiro,103088,Ceará,ZAG,7.8,4.3,Santos,visitante,1.7333333333333334,3.0166666666666666
+1354,Willian,42116,Fluminense,ATA,2.1,0.26666666666666666,Fortaleza,visitante,5.75,3.0083333333333333
+1355,Saravia,96725,Botafogo,LAT,2.6,5.0,América-MG,visitante,1.0,3.0
+1356,Luís Castro,88037,Botafogo,TEC,4.096666666666667,4.94,América-MG,visitante,1.0,2.97
+1357,Fred,38162,Fluminense,ATA,0.8500000000000001,0.15,Fortaleza,visitante,5.75,2.95
+1358,Lima,96340,Ceará,MEI,8.15,4.15,Santos,visitante,1.7333333333333334,2.941666666666667
+1359,Daniel Borges,73318,Botafogo,LAT,3.8666666666666667,4.766666666666667,América-MG,visitante,1.0,2.8833333333333333
+1360,Gabriel,78605,Internacional,MEI,4.1,1.2,Cuiabá,visitante,4.5,2.85
+1361,Robinho,62104,Coritiba,MEI,1.15,0.7000000000000001,Atlético-GO,visitante,4.8999999999999995,2.8
+1362,Arias,99815,Fluminense,MEI,2.3333333333333335,-0.2,Fortaleza,visitante,5.75,2.775
+1363,Allan,96652,Atlético-MG,MEI,2.2,1.6,Bragantino,visitante,3.9,2.75
+1364,Régis,82647,Coritiba,MEI,1.1666666666666667,0.5499999999999999,Atlético-GO,visitante,4.8999999999999995,2.7249999999999996
+1365,Henrique,50856,Coritiba,ZAG,5.3999999999999995,0.5333333333333333,Atlético-GO,visitante,4.8999999999999995,2.7166666666666663
+1366,Eduardo Sasha,70360,Atlético-MG,ATA,1.5333333333333332,1.5,Bragantino,visitante,3.9,2.7
+1367,Luciano Castán,68942,Coritiba,ZAG,5.666666666666667,0.5,Atlético-GO,visitante,4.8999999999999995,2.6999999999999997
+1368,Bruno Pacheco,90061,Ceará,LAT,1.2333333333333332,3.65,Santos,visitante,1.7333333333333334,2.6916666666666664
+1369,Henrique Lordelo,107259,Goiás,MEI,2.3,-2.4,Flamengo,visitante,7.75,2.675
+1370,Rubens,110727,Atlético-MG,MEI,4.566666666666667,1.3,Bragantino,visitante,3.9,2.6
+1371,Patrick de Paula,107172,Botafogo,MEI,5.266666666666667,4.199999999999999,América-MG,visitante,1.0,2.5999999999999996
+1372,Dorival Júnior,40990,Ceará,TEC,2.6666666666666665,3.4050000000000002,Santos,visitante,1.7333333333333334,2.569166666666667
+1373,Luís Oyama,97908,Botafogo,MEI,3.1333333333333333,4.133333333333334,América-MG,visitante,1.0,2.566666666666667
+1374,Vinícius Lopes,104660,Botafogo,ATA,-0.05,4.1,América-MG,visitante,1.0,2.55
+1375,Maurício,105647,Internacional,MEI,2.6999999999999997,0.5333333333333333,Cuiabá,visitante,4.5,2.5166666666666666
+1376,Caio Vidal,107745,Internacional,ATA,0.9,0.45,Cuiabá,visitante,4.5,2.475
+1377,Víctor Cuesta,79113,Botafogo,ZAG,3.75,3.9,América-MG,visitante,1.0,2.45
+1378,Gustavo Scarpa,87999,Palmeiras,MEI,7.2,-0.1,Juventude,visitante,5.0,2.45
+1379,David,90309,Internacional,ATA,2.25,0.30000000000000004,Cuiabá,visitante,4.5,2.4
+1380,Thonny Anderson,101484,Coritiba,MEI,0.3,-0.1,Atlético-GO,visitante,4.8999999999999995,2.4
+1381,Taison,62114,Internacional,MEI,0.3,0.2,Cuiabá,visitante,4.5,2.35
+1382,Wesley,105811,Palmeiras,ATA,1.45,-0.3,Juventude,visitante,5.0,2.35
+1383,Michel,80664,Ceará,LAT,-0.4,2.9,Santos,visitante,1.7333333333333334,2.3166666666666664
+1384,Atuesta ,96754,Palmeiras,MEI,0.8000000000000002,-0.4,Juventude,visitante,5.0,2.3
+1385,Calleri,89840,São Paulo,ATA,17.0,5.066666666666666,Corinthians,visitante,-0.5,2.283333333333333
+1386,Bruno Méndez,103700,Internacional,ZAG,3.8000000000000003,0.05000000000000002,Cuiabá,visitante,4.5,2.275
+1387,Danilo,107231,Palmeiras,MEI,3.625,-0.5,Juventude,visitante,5.0,2.25
+1388,Jair,81091,Atlético-MG,MEI,3.85,0.5,Bragantino,visitante,3.9,2.2
+1389,Wesley Moraes,97339,Internacional,ATA,3.8,-0.2,Cuiabá,visitante,4.5,2.15
+1390,Rodrigo Lindoso,72362,Ceará,MEI,-0.8500000000000001,2.3,Santos,visitante,1.7333333333333334,2.0166666666666666
+1391,Victor Luis,86410,Ceará,LAT,1.15,2.1,Santos,visitante,1.7333333333333334,1.9166666666666667
+1392,Savarino,98672,Atlético-MG,ATA,10.450000000000001,-0.1,Bragantino,visitante,3.9,1.9
+1393,Gabriel Lacerda,108176,Ceará,ZAG,0.65,2.05,Santos,visitante,1.7333333333333334,1.8916666666666666
+1394,Igor Gomes,100084,São Paulo,MEI,1.2333333333333334,4.266666666666667,Corinthians,visitante,-0.5,1.8833333333333333
+1395,Wanderson,93478,Internacional,ATA,5.5,-0.75,Cuiabá,visitante,4.5,1.875
+1396,Otávio,82463,Atlético-MG,MEI,1.1333333333333333,-0.2,Bragantino,visitante,3.9,1.8499999999999999
+1397,Kanu,98484,Botafogo,ZAG,-0.4,2.6666666666666665,América-MG,visitante,1.0,1.8333333333333333
+1398,Vina,71162,Ceará,MEI,0.8,1.9,Santos,visitante,1.7333333333333334,1.8166666666666667
+1399,Léo Rafael,107344,Ceará,MEI,-0.1,0.0,Santos,visitante,1.7333333333333334,1.7333333333333334
+1400,João Victor,112060,Ceará,ATA,0.9,0.0,Santos,visitante,1.7333333333333334,1.7333333333333334
+1401,Marcos Victor,115537,Ceará,ZAG,3.4,0.0,Santos,visitante,1.7333333333333334,1.7333333333333334
+1402,Cléber,104125,Ceará,ATA,-0.2,0.0,Santos,visitante,1.7333333333333334,1.7333333333333334
+1403,Wescley,70925,Ceará,MEI,3.9,0.0,Santos,visitante,1.7333333333333334,1.7333333333333334
+1404,Kelvyn,102464,Ceará,LAT,-0.7,0.0,Santos,visitante,1.7333333333333334,1.7333333333333334
+1405,Eder,91521,São Paulo,ATA,2.6333333333333333,3.9333333333333336,Corinthians,visitante,-0.5,1.7166666666666668
+1406,Erick,97810,Ceará,ATA,0.49999999999999994,1.7,Santos,visitante,1.7333333333333334,1.7166666666666668
+1407,Patrick,83433,São Paulo,MEI,4.35,3.85,Corinthians,visitante,-0.5,1.675
+1408,Andrés,110517,São Paulo,MEI,-0.15000000000000002,3.6,Corinthians,visitante,-0.5,1.55
+1409,Messias,87402,Ceará,ZAG,0.6499999999999999,1.3,Santos,visitante,1.7333333333333334,1.5166666666666666
+1410,Romildo,107972,Botafogo,MEI,0.4,1.9,América-MG,visitante,1.0,1.45
+1411,Lucas Fernandes,94931,Botafogo,MEI,0.9,1.8,América-MG,visitante,1.0,1.4
+1412,Rogério Ceni,97341,São Paulo,TEC,5.933333333333334,3.246666666666666,Corinthians,visitante,-0.5,1.373333333333333
+1413,André,107498,Fluminense,MEI,4.166666666666667,-3.1,Fortaleza,visitante,5.75,1.325
+1414,Diego Gonçalves,90540,Botafogo,ATA,5.866666666666667,1.5666666666666664,América-MG,visitante,1.0,1.2833333333333332
+1415,Nino Paraíba,68808,Ceará,LAT,2.966666666666667,0.8,Santos,visitante,1.7333333333333334,1.2666666666666666
+1416,Alisson,81845,São Paulo,MEI,3.766666666666666,3.0,Corinthians,visitante,-0.5,1.25
+1417,Richard Coelho,86711,Ceará,MEI,5.2,0.75,Santos,visitante,1.7333333333333334,1.2416666666666667
+1418,Welington ,106824,São Paulo,LAT,4.966666666666667,2.8333333333333335,Corinthians,visitante,-0.5,1.1666666666666667
+1419,Tchê Tchê,86686,Botafogo,MEI,2.5,1.3,América-MG,visitante,1.0,1.15
+1420,Gustavo Sauer,85993,Botafogo,ATA,2.9,1.15,América-MG,visitante,1.0,1.075
+1421,Chay,104926,Botafogo,MEI,6.433333333333334,1.0,América-MG,visitante,1.0,1.0
+1422,Jonathan Silva,102597,Botafogo,LAT,0.6,0.0,América-MG,visitante,1.0,1.0
+1423,Philipe Sampaio,87808,Botafogo,ZAG,0.09999999999999998,0.85,América-MG,visitante,1.0,0.925
+1424,Rodrigo Nestor,106822,São Paulo,MEI,1.2,2.3000000000000003,Corinthians,visitante,-0.5,0.9000000000000001
+1425,André Anderson,106803,São Paulo,MEI,1.1,2.3,Corinthians,visitante,-0.5,0.8999999999999999
+1426,Rafinha,38144,São Paulo,LAT,3.233333333333333,2.1999999999999997,Corinthians,visitante,-0.5,0.8499999999999999
+1427,Richardson,86536,Ceará,MEI,1.6,-0.2,Santos,visitante,1.7333333333333334,0.7666666666666667
+1428,Lucas Piazon,74084,Botafogo,MEI,1.3,0.3,América-MG,visitante,1.0,0.65
+1429,Arboleda,91573,São Paulo,ZAG,6.55,1.75,Corinthians,visitante,-0.5,0.625
+1430,Zé Roberto,80076,Ceará,ATA,4.35,-0.5,Santos,visitante,1.7333333333333334,0.6166666666666667
+1431,Geovane,105336,Ceará,MEI,0.10000000000000002,-0.5,Santos,visitante,1.7333333333333334,0.6166666666666667
+1432,Pablo Maia,113359,São Paulo,MEI,2.033333333333333,1.7333333333333334,Corinthians,visitante,-0.5,0.6166666666666667
+1433,Jandrei,86508,São Paulo,GOL,2.5,1.5,Corinthians,visitante,-0.5,0.5
+1434,Matheus Nascimento,109114,Botafogo,ATA,2.1,-0.25,América-MG,visitante,1.0,0.375
+1435,Iury Castilho,89695,Ceará,ATA,1.9,-1.0,Santos,visitante,1.7333333333333334,0.3666666666666667
+1436,Nikão,69705,São Paulo,MEI,5.85,0.6,Corinthians,visitante,-0.5,0.04999999999999999
+1437,Luiz Otávio,72359,Ceará,ZAG,0.7,-1.9,Santos,visitante,1.7333333333333334,-0.08333333333333326
+1438,Rigoni,96684,São Paulo,ATA,-0.35,-0.4,Corinthians,visitante,-0.5,-0.45
+1439,Diego,101728,São Paulo,ZAG,5.5,-0.4333333333333333,Corinthians,visitante,-0.5,-0.4666666666666667
+1440,Marquinhos,113158,São Paulo,ATA,1.9,0.0,Corinthians,visitante,-0.5,-0.5
+1441,Igor Vinícius,95466,São Paulo,LAT,0.0,0.0,Corinthians,visitante,-0.5,-0.5
+1442,Toró,101885,São Paulo,ATA,7.9,0.0,Corinthians,visitante,-0.5,-0.5
+1443,Talles,106830,São Paulo,MEI,3.7,0.0,Corinthians,visitante,-0.5,-0.5
+1444,Léo,85626,São Paulo,ZAG,3.1,-0.55,Corinthians,visitante,-0.5,-0.525
+1445,Reinaldo,78850,São Paulo,LAT,0.7,-1.1,Corinthians,visitante,-0.5,-0.8

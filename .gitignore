@@ -1,0 +1,11 @@
+*.log
+database/2019/
+database/2020/
+database/2021/
+database/2022/
+database/2023/backup/
+database/2023/scout_service/events/
+database/2023/scout_service/finalizacoes/
+database/2023/scout_service/scouts_equipes/
+
+

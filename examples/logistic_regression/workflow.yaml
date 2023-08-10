@@ -1,0 +1,25 @@
+
+name: LinearRegression
+team_name: mlplat
+runtime:
+    repository_uri: .gflow
+inputs:
+    - max_iter
+    - model_version
+    - model_tag
+steps:
+    - name: GetShotsDatasetStep
+      runtime:
+        class: shots_dataset_step.ShotsDatasetStep
+      inputs:
+        dataset_name: shots.csv
+    - name: TrainStep
+      runtime:
+        class: train_step.TrainStep
+      dependencies:
+        - GetShotsDatasetStep
+      inputs:
+        dataset_name: shots.csv
+        model_version: "{{workflow.model_version}}"
+        model_tag: "{{workflow.model_tag}}"
+        max_iter: "{{workflow.max_iter}}"
