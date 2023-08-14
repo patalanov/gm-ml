@@ -28,6 +28,8 @@ from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 
+from sklearn.calibration import CalibratedClassifierCV
+
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import PolynomialFeatures, FunctionTransformer
 from sklearn.pipeline import Pipeline
@@ -36,7 +38,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.metrics import classification_report,confusion_matrix
 from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.metrics import roc_curve
-from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score, log_loss
 
 from sources.apis.utils import sct as sct
 from maths.pitch import dictCoordenadas36, draw_pitch, set_xy_coordinates
@@ -120,14 +122,15 @@ class xG:
                 # print('EDICAO CARTOLA', self.edicao_cartola)
 
 
-        def gerar_metricas_xG(self,torneio='Brasileiro',edicao=2023):
+        def gerar_metricas_xG(self):
 
-                df_geral = self.logistic_regression_xG(df=self.df_finalizacoes)
+                df_geral = self.xgboost_xG(df=self.df_finalizacoes)
+                #df_geral = self.logistic_regression_xG(df=self.df_finalizacoes)
                 print('df_geral',df_geral, df_geral.info())
 
                 # # filtrar apenas lances do campeonato brasileiro
                 # df_brasileiro = df_geral.loc[(self.df_finalizacoes['Torneio']=='Brasileiro')&(self.df_finalizacoes['Edicao']==self.edicao_cartola)]
-                df_brasileiro = df_geral.loc[(self.df_finalizacoes['Torneio'] == torneio) & (self.df_finalizacoes['Edicao'] == edicao)]
+                df_brasileiro = df_geral.loc[(self.df_finalizacoes['Torneio'] == 'Brasileiro') & (self.df_finalizacoes['Edicao'] == self.edicao_cartola)]
                 print('df_brasileiro',df_brasileiro, df_brasileiro.info())
 
                 predictions_filename = f'temp/csv/xG_preds_R{self.rodada}.csv'
@@ -265,6 +268,7 @@ class xG:
 
                 # Fit do modelo nos dados de treino:         
                 #logistic_model.fit(X_treino_escalado, y_train)
+                
                 logistic_model.fit(X_train, y_train)
 
 
@@ -275,6 +279,82 @@ class xG:
                 y_hat.shape
                 ## VETOR xG - adicionar y_probs como uma coluna ao dataframe original
                 df['xG'] = y_hat
+                return df
+
+        # # modelo de regressão logística
+        # def xgboost_xG(self, df=None, torneio=None, edicao=None, filtrar=False):
+        #         if filtrar:
+        #                 df = df.loc[(df['Torneio']==torneio) & (df['Edicao']==edicao)]
+
+        #         # Inicializar o dataset
+        #         dataset = df[['Goal','Distance','Angle Radians','header']].copy()
+
+        #         # Dividir em treino e teste
+        #         X_train, X_test, y_train, y_test = train_test_split(dataset.drop('Goal', axis=1), 
+        #                                                                 dataset['Goal'], test_size=0.20, 
+        #                                                                 random_state=10)
+
+        #         # Inicializar o modelo XGBoost
+        #         xgb_model = XGBClassifier()
+
+        #         # Treinar o modelo
+        #         xgb_model.fit(X_train, y_train)
+
+        #         # persistir modelo
+        #         with open(f"gmodels/pickle/xG/R{self.rodada}xgBoost.pkl", 'wb') as f:
+        #                 pickle.dump(xgb_model, f)
+
+        #         # Fazer previsões no conjunto de teste
+        #         y_pred = xgb_model.predict(X_test)
+
+        #         # Avaliar a precisão do modelo
+        #         accuracy = accuracy_score(y_test, y_pred)
+        #         print("Accuracy:", accuracy)
+
+        #         # Fazer previsões no conjunto completo
+        #         y_probs = xgb_model.predict_proba(dataset.drop('Goal', axis=1))[:, 1]
+
+        #         # Adicionar probabilidades xG ao DataFrame original
+        #         df['xG'] = y_probs
+
+        #         return df
+
+        def xgboost_xG(self, df=None, torneio=None, edicao=None, filtrar=False):
+    
+                if filtrar:
+                        df = df.loc[(df['Torneio']==torneio) & (df['Edicao']==edicao)]
+
+                dataset = df[['Goal','Distance','Angle Radians','header']].copy()
+                dataset['Distance*Angle'] = dataset['Distance'] * dataset['Angle Radians']
+
+                X_train, X_test, y_train, y_test = train_test_split(dataset.drop('Goal', axis=1), dataset['Goal'], test_size=0.20, random_state=10)
+
+                xgb_model = XGBClassifier()
+                xgb_model.fit(X_train, y_train)
+
+                # persistir modelo
+                with open(f"gmodels/pickle/xG/R{self.rodada}xgBoost.pkl", 'wb') as f:
+                        pickle.dump(xgb_model, f)
+
+                calibrated_clf = CalibratedClassifierCV(xgb_model, method='sigmoid', cv='prefit')
+                calibrated_clf.fit(X_train, y_train)
+
+                # persistir modelo
+                with open(f"gmodels/pickle/xG/R{self.rodada}xgBoost_Calibrated.pkl", 'wb') as f:
+                        pickle.dump(calibrated_clf, f)
+
+                y_pred = xgb_model.predict(X_test)
+                accuracy = accuracy_score(y_test, y_pred)
+                logloss = log_loss(y_test, xgb_model.predict_proba(X_test)[:,1])
+                auc = roc_auc_score(y_test, y_pred)
+
+                print("Accuracy:", accuracy)
+                print("Log Loss:", logloss)
+                print("AUC:", auc)
+
+                y_probs = calibrated_clf.predict_proba(dataset.drop('Goal', axis=1))[:, 1]
+                df['xG'] = y_probs
+
                 return df
 
 

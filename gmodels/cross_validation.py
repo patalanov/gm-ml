@@ -109,6 +109,15 @@ class CrossValidate:
             "Logistic Regression, fit_intercetp=False": LogisticRegression(fit_intercept=False,solver='lbfgs'),
             "Logistic Regression, Weights Balanced": LogisticRegression(class_weight='balanced',solver='lbfgs'),
         }
+
+        self.modelos_xgboost = {
+            "XGBoost Default": XGBClassifier(),
+            "XGBoost with max_depth=3, learning_rate=0.1": XGBClassifier(max_depth=3, learning_rate=0.1),
+            "XGBoost with subsample=0.7, colsample_bytree=0.8": XGBClassifier(subsample=0.7, colsample_bytree=0.8),
+            "XGBoost with scale_pos_weight for imbalanced": XGBClassifier(scale_pos_weight=3)
+            # ... add more configurations as needed
+        }
+
         self.modelos_linear_regression = {
             "linear_regression": [(None, None),(None, None),('linear_regression', LinearRegression())],
             "polynomial_features_degree 2": [('scaler', StandardScaler()), ('polynomial_features',PolynomialFeatures(degree=2, include_bias=False)),('linear_regression', LinearRegression())],
@@ -381,7 +390,8 @@ class CrossValidate:
             print(X.shape)
             print(y.shape)
 
-            self.avaliar_modelos_nao_padronizados('Logistic Regression', self.modelos_logis_regression, X, y, self.resultados_modelos_nao_padronizaveis)
+            #self.avaliar_modelos_nao_padronizados('Logistic Regression', self.modelos_logis_regression, X, y, self.resultados_modelos_nao_padronizaveis)
+            self.avaliar_modelos_nao_padronizados('Logistic Regression', self.modelos_xgboost, X, y, self.resultados_modelos_nao_padronizaveis)
 
             resultados_nao_padronizados_df = pd.DataFrame.from_dict(self.resultados_modelos_nao_padronizaveis)
             
