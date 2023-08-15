@@ -28,6 +28,8 @@ from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 
+from xgboost import XGBClassifier
+
 from sklearn.calibration import CalibratedClassifierCV
 
 from sklearn.compose import ColumnTransformer

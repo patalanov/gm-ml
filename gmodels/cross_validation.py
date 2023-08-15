@@ -22,6 +22,8 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import train_test_split
 
+from xgboost import XGBClassifier
+
 from sklearn.pipeline import Pipeline
 from sklearn.pipeline import make_pipeline
 
@@ -391,7 +393,7 @@ class CrossValidate:
             print(y.shape)
 
             #self.avaliar_modelos_nao_padronizados('Logistic Regression', self.modelos_logis_regression, X, y, self.resultados_modelos_nao_padronizaveis)
-            self.avaliar_modelos_nao_padronizados('Logistic Regression', self.modelos_xgboost, X, y, self.resultados_modelos_nao_padronizaveis)
+            self.avaliar_modelos_nao_padronizados('XGBoost Default', self.modelos_xgboost, X, y, self.resultados_modelos_nao_padronizaveis)
 
             resultados_nao_padronizados_df = pd.DataFrame.from_dict(self.resultados_modelos_nao_padronizaveis)
             
@@ -403,10 +405,10 @@ class CrossValidate:
             # now you can save it to a file
             resultados_nao_padronizados_df.to_csv(f'gmodels/csv/R{rodada}_xG_parametrization.csv')
 
-            print (self.modelos_logis_regression[parametrizacao])
+            print (self.modelos_xgboost[parametrizacao])
             # now you can save best round model to a file
             with open(f'gmodels/pickle/{model}/R{rodada}_{algoritmo}_{parametrizacao}.pkl', 'wb') as f:
-                pickle.dump(self.modelos_logis_regression[parametrizacao], f)
+                pickle.dump(self.modelos_xgboost[parametrizacao], f)
 
             # reiniciar
             self.resultados_modelos_nao_padronizaveis = {
