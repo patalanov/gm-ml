@@ -1,0 +1,6 @@
+
+-i https://artifactory.globoi.com/artifactory/api/pypi/pypi-all/simple
+    
+gflow[gcp]==1.1.0
+scikit-learn==0.23.2
+graphviz

@@ -107,14 +107,14 @@ class xG:
 
                 # transformar coordenadas centralizadas nos 36 quadrantes em coordenadas (x,y) com variância randomizada
                 # filtragem por finalizações
-                temp_filename = f'database/{self.edicao_cartola}/scout_service/finalizacoes/Finalizacoes_R{self.rodada}.csv'
+                temp_filename = f'database/{self.edicao_cartola}/scout_service/finalizacoes/Finalizacoes.csv'
                 if os.path.exists(temp_filename):
                         self.df_finalizacoes = pd.read_csv(temp_filename,index_col=0)
                 else:
                         print ('Setting up coordinates for pitch events...')
                         print ('##########################################')
                         self.df_finalizacoes = set_xy_coordinates(self.eventos)
-                        self.df_finalizacoes.to_csv(f'database/{self.edicao_cartola}/scout_service/finalizacoes/Finalizacoes_R{self.rodada}.csv')
+                        self.df_finalizacoes.to_csv(f'database/{self.edicao_cartola}/scout_service/finalizacoes/Finalizacoes.csv')
 
                 # df_finalizacoes = pd.read_csv('database/scout_service/finalizacoes/Finalizacoes.csv')
                 print('RODADA Scout Service', self.df_finalizacoes['rodada_id'].max())
@@ -283,7 +283,7 @@ class xG:
                 df['xG'] = y_hat
                 return df
 
-        # # modelo de regressão logística
+        # # modelo de xgboost
         # def xgboost_xG(self, df=None, torneio=None, edicao=None, filtrar=False):
         #         if filtrar:
         #                 df = df.loc[(df['Torneio']==torneio) & (df['Edicao']==edicao)]
