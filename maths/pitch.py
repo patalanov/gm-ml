@@ -218,7 +218,7 @@ def draw_pitch(x_min=0, x_max=105,
 
 
 
-def set_xy_coordinates(df):
+def set_shots_coordinates(df):
     list_goals = [11,23,6,17,55,60,38]
     df['Goal'] = df['Codigo'].apply (lambda x: 1 if x in list_goals else 0)
     # Inserindo informações de finalização
@@ -275,3 +275,60 @@ def set_xy_coordinates(df):
     df = df.apply(lambda x: calculate_distance_angles(x), axis=1)
     return df
 
+
+def set_assists_coordinates(df):
+    list_goals = [11,23,6,17,55,60,38]
+    df['Goal'] = df['Codigo'].apply (lambda x: 1 if x in list_goals else 0)
+    # Inserindo informações de finalização
+    list_finalizacoes = [3,4,5,6,7,8,9,17,18,19,77]
+    df['header'] = df['Codigo'].apply (lambda x: 1 if x in list_finalizacoes else 0)
+
+
+    df = sct.filter_db(df,scout_ids=[1,10,11,12,13,20,21,22,23,24,45,59,90,
+                                     3,4,5,6,7,8,9,17,18,19,77,
+                                     55,56,57,58,59,
+                                     60,61,62,63])
+
+    df['coordenadas'] = df['PosicaoLance'].apply(lambda x: dictCoordenadas36.get(x))
+    #print(df['coordenadas'].isnull().sum())
+    df = df.dropna(subset=['coordenadas'])
+
+    x = []
+    y = []
+    for i, row in df.iterrows():
+        if row['PosicaoLance']==-1:
+            x.append(-1)
+            y.append(-1)
+        elif row['PosicaoLance']>=36:
+            x.append(-1)
+            y.append(-1)
+        else:
+            x.append(round(row['coordenadas'][0]+randint(10, 100),2))
+            y.append(round(row['coordenadas'][1]+randint(0, 130),2))
+            # x.append(row['coordenadas'][0]) #+randint(20, 70)
+            # y.append(row['coordenadas'][1]) #+randint(20, 100)
+    df['x'] = x
+    df['y'] = y
+
+    # # Check if was penalty
+    # list_penalty = [60,61,62,63]
+    # lances['x'][lances['Codigo'].isin(list_penalty)] = 300
+    # lances['y'][lances['Codigo'].isin(list_penalty)] = 777
+
+
+    # Normalizando tamanho campo em x e y
+    df['x'] = ((df['x']/550)*100) -6
+    df['y'] = ((df['y']/800)*100) -7
+
+    # Colocando na situação do campo
+    df['X'] = df['x']*0.68
+    df['Y'] = df['y']*1.05
+
+
+    df['x'] = df['x']
+    df['y'] = 100-df['y']
+
+    df['Center_dist'] = abs(df['x']-50)
+
+    df = df.apply(lambda x: calculate_distance_angles(x), axis=1)
+    return df
