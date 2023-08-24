@@ -10,9 +10,14 @@ def calculate_distance_angles(row,metric):
         row['Distance'] = np.sqrt(x**2 + y**2)
 
     if metric == 'xA':
-        x = row['Center_dist_assist']*.68
+        x = row['Center_dist Assist']*.68
         y = row['y_assist']*1.05
-        row['Distance_assist'] = np.sqrt(x**2 + y**2)
+        row['Distance Assist'] = np.sqrt(x**2 + y**2)
+
+    if metric == 'xPre':
+        x = row['Center_dist PreAssist']*.68
+        y = row['y_preassist']*1.05
+        row['Distance PreAssist'] = np.sqrt(x**2 + y**2)
 
     #row['Distance'] = np.sqrt(x**2 + y**2)  
     c=7.32
@@ -31,5 +36,8 @@ def calculate_distance_angles(row,metric):
     if metric == 'xA':
         row['Angle Radians Assist'] = gamma
         row['Angle Degrees Assist'] = gamma*180/np.pi
+    if metric == 'xPre':
+        row['Angle Radians PreAssist'] = gamma
+        row['Angle Degrees PreAssist'] = gamma*180/np.pi
     
     return row

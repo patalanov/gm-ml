@@ -288,7 +288,7 @@ def set_assists_coordinates(df,metric):
     # list_pre_assistencias = [3,4,5,6,7,8,9,17,18,19,77]
     # df['header'] = df['Codigo'].apply (lambda x: 1 if x in list_pre_assistencias else 0)
 
-    df = sct.filter_db(df,scout_ids=[14,74])
+    df = sct.filter_db(df,scout_ids=[14])
 
     df['coordenadas_assist'] = df['PosicaoLance'].apply(lambda x: dictCoordenadas36.get(x))
     #print(df['coordenadas'].isnull().sum())
@@ -329,7 +329,66 @@ def set_assists_coordinates(df,metric):
     df['x_assist'] = df['x_assist']
     df['y_assist'] = 100-df['y_assist']
 
-    df['Center_dist_assist'] = abs(df['x_assist']-50)
+    df['Center_dist Assist'] = abs(df['x_assist']-50)
+
+    df = df.apply(lambda x: calculate_distance_angles(x,metric), axis=1)
+    return df
+
+
+def set_preassists_coordinates(df,metric):
+    ## Passe
+    # 14: 'Passe,Decisivo'
+    # 25: 'Passe,Incompleto'
+    # 74: 'Passe,Completo'
+
+    # list_assistencias = [14]
+    # df['Assist'] = df['Codigo'].apply (lambda x: 1 if x in list_assistencias else 0)
+    # # Inserindo informações de finalização
+    # list_pre_assistencias = [3,4,5,6,7,8,9,17,18,19,77]
+    # df['header'] = df['Codigo'].apply (lambda x: 1 if x in list_pre_assistencias else 0)
+
+    df = sct.filter_db(df,scout_ids=[74])
+
+    df['coordenadas_preassist'] = df['PosicaoLance'].apply(lambda x: dictCoordenadas36.get(x))
+    #print(df['coordenadas'].isnull().sum())
+    df = df.dropna(subset=['coordenadas_preassist'])
+
+    x = []
+    y = []
+    for i, row in df.iterrows():
+        if row['PosicaoLance']==-1:
+            x.append(-1)
+            y.append(-1)
+        elif row['PosicaoLance']>=36:
+            x.append(-1)
+            y.append(-1)
+        else:
+            x.append(round(row['coordenadas_preassist'][0]+randint(10, 100),2))
+            y.append(round(row['coordenadas_preassist'][1]+randint(0, 130),2))
+            # x.append(row['coordenadas'][0]) #+randint(20, 70)
+            # y.append(row['coordenadas'][1]) #+randint(20, 100)
+    
+    df['x_preassist'] = x
+    df['y_preassist'] = y
+
+    # # Check if was penalty
+    # list_penalty = [60,61,62,63]
+    # lances['x'][lances['Codigo'].isin(list_penalty)] = 300
+    # lances['y'][lances['Codigo'].isin(list_penalty)] = 777
+
+    # Normalizando tamanho campo em x e y
+    df['x_preassist'] = ((df['x_preassist']/550)*100) -6
+    df['y_preassist'] = ((df['y_preassist']/800)*100) -7
+
+    # Colocando na situação do campo
+    df['X_preassist'] = df['x_preassist']*0.68
+    df['Y_preassist'] = df['y_preassist']*1.05
+
+
+    df['x_preassist'] = df['x_preassist']
+    df['y_preassist'] = 100-df['y_preassist']
+
+    df['Center_dist PreAssist'] = abs(df['x_preassist']-50)
 
     df = df.apply(lambda x: calculate_distance_angles(x,metric), axis=1)
     return df
