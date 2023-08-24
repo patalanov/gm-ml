@@ -9,7 +9,7 @@ def calculate_distance_angles(row,metric):
         y = row['y']*1.05
         row['Distance'] = np.sqrt(x**2 + y**2)
 
-    else:
+    if metric == 'xA':
         x = row['Center_dist_assist']*.68
         y = row['y_assist']*1.05
         row['Distance_assist'] = np.sqrt(x**2 + y**2)
@@ -28,7 +28,7 @@ def calculate_distance_angles(row,metric):
     if metric == 'xG':
         row['Angle Radians'] = gamma
         row['Angle Degrees'] = gamma*180/np.pi
-    else:
+    if metric == 'xA':
         row['Angle Radians Assist'] = gamma
         row['Angle Degrees Assist'] = gamma*180/np.pi
     

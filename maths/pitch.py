@@ -218,7 +218,7 @@ def draw_pitch(x_min=0, x_max=105,
 
 
 
-def set_shots_coordinates(df):
+def set_shots_coordinates(df,metric):
     list_goals = [11,23,6,17,55,60,38]
     df['Goal'] = df['Codigo'].apply (lambda x: 1 if x in list_goals else 0)
     # Inserindo informações de finalização
@@ -272,11 +272,11 @@ def set_shots_coordinates(df):
 
     df['Center_dist'] = abs(df['x']-50)
 
-    df = df.apply(lambda x: calculate_distance_angles(x), axis=1)
+    df = df.apply(lambda x: calculate_distance_angles(x,metric), axis=1)
     return df
 
 
-def set_assists_coordinates(df):
+def set_assists_coordinates(df,metric):
     ## Passe
     # 14: 'Passe,Decisivo'
     # 25: 'Passe,Incompleto'
@@ -331,5 +331,5 @@ def set_assists_coordinates(df):
 
     df['Center_dist_assist'] = abs(df['x_assist']-50)
 
-    df = df.apply(lambda x: calculate_distance_angles(x,'xA'), axis=1)
+    df = df.apply(lambda x: calculate_distance_angles(x,metric), axis=1)
     return df

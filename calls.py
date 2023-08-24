@@ -9,14 +9,13 @@ import dpath.util
 from decouple import config
 
 token = config('SDE_TOKEN1')
-CARTOLA_URL = config('CARTOLA_URL')
-SDE_URL = config('SDE_URL')
+cartola_api = config('CARTOLA_URL')
 
 # util
 def consulta_url_sde(url):
     headers = {'token': token}
-    SDE_URL = config('SDE_URL')
-    res = requests.get(SDE_URL + url, headers=headers)
+    BASE_URL = config('SDE_URL')
+    res = requests.get(BASE_URL + url, headers=headers)
     res = json.loads(str(res.text))
     return res
 
@@ -36,30 +35,9 @@ def _request_sde(url):
 def get_equipes_sde(edicao):
     result = _request_sde(f'/esportes/futebol/modalidades/futebol_de_campo/categorias/profissional/campeonatos/campeonato-brasileiro/edicoes/campeonato-brasileiro-{edicao}/equipes')
     equipes = result['resultados']['equipes']
-    #pprint.pprint(equipes)
+
     dict_equipes_ids = {equipe['equipe_id']: equipe for equipe in equipes}
-
-    clubes=[]
-    escudos=[]
-    _ids=[]
- 
-    for equipe in equipes:
-        clube = equipe['nome_popular']
-        _id = equipe['equipe_id']
-        escudo = equipe['escudos']['svg']
-        clubes.append(clube)
-        _ids.append(_id)
-        escudos.append(escudo)
-
-    # make dictionary of teams and ids
-    clubes_e_ids = dict(zip(clubes, _ids))
-    # account for name inconsistency
-    #clubes_e_ids['Athlético-PR'] = clubes_e_ids.pop('Athletico-PR')
-    # make dictionary of teams and badges
-    clubes_e_escudos = dict(zip(clubes,escudos))
-
-    return clubes, clubes_e_ids, dict_equipes_ids
-
+    return dict_equipes_ids
 
 def get_elenco_sde(edicao, equipes):
     """
@@ -86,23 +64,19 @@ def get_elenco_sde(edicao, equipes):
 
     return atletas, tecnicos, hash_atletas_equipes  # TODO remover hash_atletas_equipes
 
-### [In] Atletas
-def get_atletas_sde(edicao, equipes):
+def get_atleta_sde(atleta_id):
     """
-    Busca todos os atletas das equipes no SDE
+    Busca os dados de um atleta no SDE
 
     Parameters:
-        equipes (list): Vetor com os ids das equipes do SDE participantes
+        atleta_id (int): ID do atleta no SDE
     Returns:
-        Objeto com os dados de todos os atletas `{atleta_id: dadosAtleta}`
+        Objeto com os dados do atleta
     """
-    atletas = {}
-    for equipe_id in equipes:
-        result = _request_sde(f'/equipes/{equipe_id}/elenco')
-        atletas = {**atletas, **result['referencias']['atletas']}
+    dados_atleta = _request_sde(f'/atletas/{atleta_id}')
+    dados_atleta = dados_atleta.get('resultados')
 
-    return atletas
-
+    return dados_atleta
 
 def get_tecnico_sde(tecnico_id):
     """
@@ -118,43 +92,37 @@ def get_tecnico_sde(tecnico_id):
 
     return dados_tecnico
 
-    
+def get_jogos_sde(edicao, rodada):
+    """
+    Busca todos os jogos no SDE e filtra por rodada
 
-def get_jogos_sde(edicao, R, times_dict):
+    Parameters:
+        edicao (int): 2020
+        rodada (int): 0-based
+    Returns:
+        jogos, confrontos, proximas_partidas
+    """
+    
 
     results = _request_sde(f'/esportes/futebol/modalidades/futebol_de_campo/categorias/profissional/campeonatos/campeonato-brasileiro/edicoes/campeonato-brasileiro-{edicao}/jogos')
     partidas = pd.DataFrame(results['resultados']['jogos'])
 
-    rodada =  partidas[partidas['rodada']==R+1].reset_index()
-    # Inverter times e ids para mapeamento futuro
-    times_dict_r = {v:k for k, v in times_dict.items()}
+    df_partidas_rodada = partidas[partidas['rodada'] == rodada + 1].reset_index()
 
-    games = rodada[['equipe_mandante_id','equipe_visitante_id']].copy()
-    games['mandante'] = games['equipe_mandante_id'].map(times_dict_r)
-    games['visitante'] = games['equipe_visitante_id'].map(times_dict_r)
-    games = games[['mandante', 'visitante']].copy()
+    games = df_partidas_rodada[['equipe_mandante_id', 'equipe_visitante_id']].copy()
+    jogos_rodada = dict(zip(games.equipe_mandante_id, games.equipe_visitante_id))
 
-    # Jogos da rodada
-    jogos = dict(zip(games.mandante, games.visitante))
-    # Inverter jogos para mapeamento futuro
-    inv_jogos = {v: k for k, v in jogos.items()}
-    # Confrontos da rodada (mando e mando invertido)
-    confrontos = {**jogos, **inv_jogos}
+    inv_jogos = {v: k for k, v in jogos_rodada.items()}  # Inverte os times para mapeamento futuro
+    confrontos = {**jogos_rodada, **inv_jogos}  # Confrontos da rodada (mando e mando invertido)
+    jogos_que_faltam = partidas[partidas['rodada'] > rodada].reset_index()
 
-    jogos_que_faltam =  partidas[partidas['rodada']>R].reset_index()
-    next_games = jogos_que_faltam[['equipe_mandante_id','equipe_visitante_id']].copy()
-    next_games['mandante'] = next_games['equipe_mandante_id'].map(times_dict_r)
-    next_games['visitante'] = next_games['equipe_visitante_id'].map(times_dict_r)
-    next_games = next_games[['mandante', 'visitante']].copy()
-    # proximos jogos em casa e fora
-    home_ahead = list(next_games['mandante'].values)
-    away_ahead = list(next_games['visitante'].values)
-    # zip
-    match_ups_ahead = (list(zip(home_ahead, away_ahead)))
+    next_games = jogos_que_faltam[['equipe_mandante_id', 'equipe_visitante_id']].copy()
+    home_ahead = list(next_games['equipe_mandante_id'].values)
+    away_ahead = list(next_games['equipe_visitante_id'].values)
 
-    return jogos, confrontos, match_ups_ahead
+    proximas_partidas = [[int(mandante), int(visitante)] for mandante, visitante in zip(home_ahead, away_ahead)]
 
-
+    return jogos_rodada, confrontos, proximas_partidas
 
 ### [In] Partidas Edição
 def partidas_cartola(clubes=None):
@@ -167,7 +135,7 @@ def partidas_cartola(clubes=None):
 
     # In[Loading Partidas]
 
-    url_partidas = CARTOLA_URL+"/partidas/"
+    url_partidas = cartola_api+"/partidas/"
 
     partidas = requests.get(url_partidas).json()
     df_partidas = json_normalize(partidas['partidas'])
@@ -215,7 +183,7 @@ def partidas_cartola(clubes=None):
 def partidas_validas():
     # In[Loading Partidas]
 
-    url_partidas = CARTOLA_URL+"/partidas/"
+    url_partidas = cartola_api+"/partidas/"
 
     partidas = requests.get(url_partidas).json()
     df_partidas = json_normalize(partidas['partidas'])
@@ -229,7 +197,7 @@ def partidas_validas():
 ### In[Loading current status]
 def mercado_cartola():
 
-    link_athletes = 'https://api.cartolafc.globo.com'+'/atletas/mercado'
+    link_athletes = cartola_api+'/atletas/mercado'
     # call api
     resp_cartola = requests.get(link_athletes)
     # to json
@@ -250,36 +218,30 @@ def mercado_cartola():
 # ###################################################################################################################
 
 ### In[Atletas sendo mais escalados no fantasy]
-def mais_escalados_cartola(reservas=False):
-    if reservas:
-        link_athletes = CARTOLA_URL+'/mercado/destaques/reservas'
-    else:
-        link_athletes = CARTOLA_URL+'/mercado/destaques/titulares'
+def mais_escalados_cartola():
 
-    try:
-        resp_cartola = requests.get(link_athletes)
-        destaques = resp_cartola.json()
-        # turn json into dataframe
-        df = pd.DataFrame.from_dict(destaques, orient='columns')
-        # turn one column into series
-        athlete_dicts = df.Atleta.apply(pd.Series)
-        # turn that flattened list of dicts into a dataframe
-        df_mais_escalados = pd.DataFrame(athlete_dicts)
-        # relevant columns
-        df_mais_escalados = df_mais_escalados[['atleta_id', 'apelido']]
-        # creater anking
-        df_mais_escalados['ranking'] = range(1,len(df_mais_escalados.index)+1)
-    except:
-        df_mais_escalados = pd.DataFrame()
-        df_mais_escalados['ranking'] = np.nan
+    link_athletes = cartola_api+'/mercado/destaques'
 
-    print('#######################################')    
+    resp_cartola = requests.get(link_athletes)
+    destaques = resp_cartola.json()
+    # turn json into dataframe
+    df = pd.DataFrame.from_dict(destaques, orient='columns')
+    # turn one column into series
+    athlete_dicts = df.Atleta.apply(pd.Series)
+    # turn that flattened list of dicts into a dataframe
+    ic (athlete_dicts)
+    df_mais_escalados = pd.DataFrame(athlete_dicts)
+    # relevant columns
+    df_mais_escalados = df_mais_escalados[['atleta_id', 'apelido']]
+    # creater anking
+    df_mais_escalados['ranking'] = range(1,len(df_mais_escalados.index)+1)
+
+    print('#######################################')
     print('Most Selected Players In The Market Now')
-    print('############################################')    
+    print('############################################')
     ic(df_mais_escalados)
-    
-    return df_mais_escalados
 
+    return df_mais_escalados
 
 
 
