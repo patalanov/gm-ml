@@ -19,6 +19,11 @@ def calculate_distance_angles(row,metric):
         y = row['y_preassist']*1.05
         row['Distance PreAssist'] = np.sqrt(x**2 + y**2)
 
+    if metric == 'xGOT':
+        x = row['Center_dist Ot']*.68
+        y = row['y_ot']*1.05
+        row['Distance Ot'] = np.sqrt(x**2 + y**2)
+
     #row['Distance'] = np.sqrt(x**2 + y**2)  
     c=7.32
     
@@ -39,5 +44,8 @@ def calculate_distance_angles(row,metric):
     if metric == 'xPre':
         row['Angle Radians PreAssist'] = gamma
         row['Angle Degrees PreAssist'] = gamma*180/np.pi
+    if metric == 'xGOT':
+        row['Angle Radians Ot'] = gamma
+        row['Angle Degrees Ot'] = gamma*180/np.pi
     
     return row

@@ -276,6 +276,79 @@ def set_shots_coordinates(df,metric):
     return df
 
 
+
+def set_shots_on_target_coordinates(df,metric):
+
+    ## Finalização
+    # 10: 'Finalização,Dentro Área,Defendido'
+    # 11: 'Finalização,Dentro Área,Gol'
+    # 13: 'Finalização,Fora da Área,Defendido'
+    # 23: 'Finalização,Fora da Área,Gol'
+    # 89: 'Finalização,Finalização,Certa'
+
+    # ## Finalização de Cabeça
+    # 3:  'Finalização Cabeça,Dentro Peq.Área,Defendido'
+    # 6:  'Finalização Cabeça,Dentro Peq.Área,Gol'
+    # 8:  'Finalização Cabeça,Grande Área,Defendido'
+    # 17: 'Finalização Cabeça,Grande Área,Gol'
+
+    # 57: 'Falta,Defendida'
+
+    list_goals = [11,23,6,17,55,60,38]
+    df['Goal'] = df['Codigo'].apply (lambda x: 1 if x in list_goals else 0)
+    # Inserindo informações de finalização
+    list_finalizacoes_no_gol = [3,6,8,17]
+    df['header_ot'] = df['Codigo'].apply (lambda x: 1 if x in list_finalizacoes_no_gol else 0)
+
+    df = sct.filter_db(df,scout_ids=[10,11,13,23,89,
+                                     3,6,8,17,
+                                     57])
+
+    df['coordenadas_ot'] = df['PosicaoLance'].apply(lambda x: dictCoordenadas36.get(x))
+    #print(df['coordenadas'].isnull().sum())
+    df = df.dropna(subset=['coordenadas_ot'])
+
+    x = []
+    y = []
+    for i, row in df.iterrows():
+        if row['PosicaoLance']==-1:
+            x.append(-1)
+            y.append(-1)
+        elif row['PosicaoLance']>=36:
+            x.append(-1)
+            y.append(-1)
+        else:
+            x.append(round(row['coordenadas_ot'][0]+randint(10, 100),2))
+            y.append(round(row['coordenadas_ot'][1]+randint(0, 130),2))
+            # x.append(row['coordenadas_ot'][0]) #+randint(20, 70)
+            # y.append(row['coordenadas_ot'][1]) #+randint(20, 100)
+    df['x_ot'] = x
+    df['y_ot'] = y
+
+    # # Check if was penalty
+    # list_penalty = [60,61,62,63]
+    # lances['x'][lances['Codigo'].isin(list_penalty)] = 300
+    # lances['y'][lances['Codigo'].isin(list_penalty)] = 777
+
+    # Normalizando tamanho campo em x e y
+    df['x_ot'] = ((df['x_ot']/550)*100) -6
+    df['y_ot'] = ((df['y_ot']/800)*100) -7
+
+    # Colocando na situação do campo
+    df['X_ot'] = df['x_ot']*0.68
+    df['Y_ot'] = df['y_ot']*1.05
+
+
+    df['x_ot'] = df['x_ot']
+    df['y_ot'] = 100-df['y_ot']
+
+    df['Center_dist Ot'] = abs(df['x_ot']-50)
+
+    df = df.apply(lambda x: calculate_distance_angles(x,metric), axis=1)
+    return df
+
+
+
 def set_assists_coordinates(df,metric):
     ## Passe
     # 14: 'Passe,Decisivo'
