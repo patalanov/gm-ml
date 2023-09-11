@@ -18,7 +18,7 @@ class TrainStep(Step):
         
         pipeline = Pipeline([('clf', LogisticRegression(random_state=0, max_iter=max_iter))])
 
-        # Train
+        # Train!
         pipeline.fit(X, y)
         context.save_model('model', pipeline)
         
