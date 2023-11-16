@@ -6,7 +6,7 @@ from random import randint
 
 import matplotlib.pyplot as plt
 from matplotlib.patches import Arc
-from maths.trig import calculate_distance_angles
+from maths.trig import calculate_distance_angles, calculate_angles
 from sources.apis.utils import sct as sct
 
 
@@ -355,12 +355,6 @@ def set_assists_coordinates(df,metric):
     # 25: 'Passe,Incompleto'
     # 74: 'Passe,Completo'
 
-    # list_assistencias = [14]
-    # df['Assist'] = df['Codigo'].apply (lambda x: 1 if x in list_assistencias else 0)
-    # # Inserindo informações de finalização
-    # list_pre_assistencias = [3,4,5,6,7,8,9,17,18,19,77]
-    # df['header'] = df['Codigo'].apply (lambda x: 1 if x in list_pre_assistencias else 0)
-
     df = sct.filter_db(df,scout_ids=[14])
 
     df['coordenadas_assist'] = df['PosicaoLance'].apply(lambda x: dictCoordenadas36.get(x))
@@ -465,3 +459,185 @@ def set_preassists_coordinates(df,metric):
 
     df = df.apply(lambda x: calculate_distance_angles(x,metric), axis=1)
     return df
+
+
+############################################################################### NOVOS CALCULOS POS NOVOS CAMPOS DE DADOS SCT ###############################################################################
+
+
+# Dimensões oficiais
+goal_width_m = 7.32  # Largura do gol em metros
+goal_height_m = 2.44  # Altura do gol em metros
+field_width_m = 65  # Largura do campo em metros, conforme especificado
+field_height_m = 50  # Metade da altura do campo em metros
+
+# Proporções do 'Goal Field'
+goal_field_width_px = 804
+goal_field_height_px = 306
+proporcao_px_m_goal_width = goal_width_m / (goal_field_width_px / 3)  # Largura do gol é um terço do 'Goal Field'
+proporcao_px_m_goal_height = (goal_height_m * 3) / goal_field_height_px  # Altura do gol triplicada
+
+# Proporções do 'Field'
+field_width_px = 804
+field_height_px = 409
+proporcao_px_m_field_width = field_width_m / field_width_px
+proporcao_px_m_field_height = field_height_m / field_height_px
+
+
+
+# User-provided conversion rates
+proporcao_px_m_goal_width = 0.0273  # 1 pixel corresponds to approximately 0.0273 meters
+proporcao_px_m_goal_height = 0.0080  # 1 pixel corresponds to approximately 0.0080 meters
+proporcao_px_m_field_width = 0.0808  # 1 pixel corresponds to approximately 0.0808 meters
+proporcao_px_m_field_height = 0.1222  # 1 pixel corresponds to approximately 0.1222 meters
+
+
+
+
+
+
+
+def calculate_shots_coordinates(df, metric):
+    """
+    Converts shot position coordinates from pixels to meters, both for goal and field.
+
+    Parameters:
+    df (DataFrame): Data containing shot positions in pixels and various other metrics.
+    metric (str): The metric name used to store the angle results.
+
+    Returns:
+    DataFrame: The input dataframe with additional columns for shot coordinates in meters.
+
+    The conversion rates are based on the real-world dimensions of a football goal and field:
+    - Goal width: 7.32 meters
+    - Goal height: 2.44 meters
+    - Field width: 65 meters
+    - Field height: 50 meters (full height considered for conversion)
+
+    The image's full width (804 pixels) represents the full width of the field (65 meters),
+    and the image's full height (306 pixels) represents the height of the goal area (2.44 meters x 3).
+    """
+
+    # Real-world dimensions of a football field and goal
+    goal_width_m   = 7.32  # Width of the goal in meters
+    goal_height_m  = 2.44  # Height of the goal in meters
+    field_width_m  = 65  # Width of the field in meters
+    field_height_m = 50  # Full height of the field in meters (not half)
+
+    # Conversion rates from pixels to meters
+    proporcao_px_m_goal_width   = goal_width_m / (804 / 3)  # Convert goal width from pixels to meters
+    proporcao_px_m_goal_height  = goal_height_m / (306 / 3)  # Convert goal height from pixels to meters
+    proporcao_px_m_field_width  = field_width_m / 804  # Convert field width from pixels to meters
+    proporcao_px_m_field_height = field_height_m / 306  # Convert field height from pixels to meters
+
+    list_goals = [11,23,6,17,55,60,38] # given by scout service api
+    list_finalizacoes = [3,4,5,6,7,8,9,17,18,19,77] # given by scout service api    
+    
+    df['Goal']   = df['Codigo'].apply(lambda x: 1 if x in list_goals else 0)
+    df['header'] = df['Codigo'].apply(lambda x: 1 if x in list_finalizacoes else 0)
+
+    df = sct.filter_db(df, scout_ids=[1,10,11,12,13,20,21,22,23,24,45,59,90,
+                                      3,4,5,6,7,8,9,17,18,19,77,
+                                      55,56,57,58,59,
+                                      60,61,62,63])
+
+    # Cópia das colunas de posição em pixels
+    df['goal_x_px']  = df['TravePosicaoX']
+    df['goal_y_px']  = df['TravePosicaoY']
+    df['field_x_px'] = df['CampoPosicaoX']
+    df['field_y_px'] = df['CampoPosicaoY']
+
+    # Adjusted conversion in the method
+    df['goal_x_metros'] = df['goal_x_px'] * proporcao_px_m_goal_width
+    df['goal_y_metros'] = df['goal_y_px'] * proporcao_px_m_goal_height
+
+    # Conversion of pixel coordinates to meters for the field
+    df['field_x_metros'] = df['field_x_px'] * proporcao_px_m_field_width
+    df['field_y_metros'] = df['field_y_px'] * proporcao_px_m_field_height
+
+    df['Center_dist']  = df['Metros']  # Assumindo que 'Metros' já representa a distância do centro
+    df['ContraAtaque'] = df['ContraAtaque'].fillna(0).astype(int)  # categorical as int
+
+        # calcular angulos
+    df = df.apply(lambda x: calculate_angles(x,metric), axis=1)
+    df = df.apply(lambda x: calculate_angles(x,metric), axis=1)
+
+    return df
+
+
+
+def calculate_shots_on_target_coordinates(df, metric):
+    """
+    Converts shot position coordinates from pixels to meters, both for goal and field.
+
+    Parameters:
+    df (DataFrame): Data containing shot positions in pixels and various other metrics.
+    metric (str): The metric name used to store the angle results.
+
+    Returns:
+    DataFrame: The input dataframe with additional columns for shot coordinates in meters.
+
+    The conversion rates are based on the real-world dimensions of a football goal and field:
+    - Goal width: 7.32 meters
+    - Goal height: 2.44 meters
+    - Field width: 65 meters
+    - Field height: 50 meters (full height considered for conversion)
+
+    The image's full width (804 pixels) represents the full width of the field (65 meters),
+    and the image's full height (306 pixels) represents the height of the goal area (2.44 meters x 3).
+    """
+
+    # Real-world dimensions of a football field and goal
+    goal_width_m   = 7.32  # Width of the goal in meters
+    goal_height_m  = 2.44  # Height of the goal in meters
+    field_width_m  = 65  # Width of the field in meters
+    field_height_m = 50  # Full height of the field in meters (not half)
+
+    # Conversion rates from pixels to meters
+    proporcao_px_m_goal_width   = goal_width_m / (804 / 3)  # Convert goal width from pixels to meters
+    proporcao_px_m_goal_height  = goal_height_m / (306 / 3)  # Convert goal height from pixels to meters
+    proporcao_px_m_field_width  = field_width_m / 804  # Convert field width from pixels to meters
+    proporcao_px_m_field_height = field_height_m / 306  # Convert field height from pixels to meters
+
+    # valores (int) do scout service para lances desejados
+    list_goals = [11,23,6,17,55,60,38]
+    list_finalizacoes_no_gol = [3,6,8,17]   
+    
+    df['Goal'] = df['Codigo'].apply(lambda x: 1 if x in list_goals else 0)
+    # header on target
+    df['header_ot'] = df['Codigo'].apply(lambda x: 1 if x in list_finalizacoes_no_gol else 0)
+
+    df = sct.filter_db(df, scout_ids=[10, 11, 13, 23, 89, 3, 6, 8, 17, 57])
+
+    # Cópia das colunas de posição em pixels
+    df['goal_x_px_on_target'] = df['TravePosicaoX']
+    df['goal_y_px_on_target'] = df['TravePosicaoY']
+    df['field_x_px_on_target'] = df['CampoPosicaoX']
+    df['field_y_px_on_target'] = df['CampoPosicaoY']
+
+    # Conversão da coordenada de pixels para metros para 'Goal Field'
+    df['goal_x_metros_on_target'] = df['goal_x_px_on_target'] * proporcao_px_m_goal_width
+    df['goal_y_metros_on_target'] = df['goal_y_px_on_target'] * proporcao_px_m_goal_height
+
+    # Conversion of pixel coordinates to meters for the field
+    df['field_x_metros_on_target'] = df['field_x_px_on_target'] * proporcao_px_m_field_width
+    df['field_y_metros_on_target'] = df['field_y_px_on_target'] * proporcao_px_m_field_height
+
+    df['Center_dist_on_target'] = df['Metros']  # Assumindo que 'Metros' já representa a distância do centro
+    df['ContraAtaque'] = df['ContraAtaque'].fillna(0).astype(int)  # categorical as int
+
+    # calcular angulos
+    df = df.apply(lambda row: calculate_angles(row, metric), axis=1)
+    df = df.apply(lambda row: calculate_angles(row, metric), axis=1)
+
+    return df
+
+
+
+
+
+
+
+
+
+
+

@@ -1,31 +1,31 @@
 import json
 from decouple import config
-import swiftclient
+#import swiftclient
 
 
-def swift_upload(file_name, data_json):
-    """
-    Realiza o upload de um arquivo .json para o Vault da Globo
+# def swift_upload(file_name, data_json):
+#     """
+#     Realiza o upload de um arquivo .json para o Vault da Globo
 
-    Args:
-        file_name (str): Apenas nome do arquivo com extensão
-        data_json: Dados no formato JSON
+#     Args:
+#         file_name (str): Apenas nome do arquivo com extensão
+#         data_json: Dados no formato JSON
 
-    Examples:
-        swift_upload('IEO-GM_Clubes_Atacantes_Neutro_Geral_R37.json', dataframe.to_json(...))
-    """
+#     Examples:
+#         swift_upload('IEO-GM_Clubes_Atacantes_Neutro_Geral_R37.json', dataframe.to_json(...))
+#     """
 
-    # Abre uma conexão no Vault
-    container = 'static'
-    swift_conn = swiftclient.Connection(authurl=config('SWIFT_AUTH_URL'),
-                                        user=config('SWIFT_USER'),
-                                        key=config('SWIFT_PASSWORD'),
-                                        tenant_name=config('SWIFT_TENANT'),
-                                        os_options={"endpoint_type": "admin"},
-                                        auth_version='2.0')
+#     # Abre uma conexão no Vault
+#     container = 'static'
+#     swift_conn = swiftclient.Connection(authurl=config('SWIFT_AUTH_URL'),
+#                                         user=config('SWIFT_USER'),
+#                                         key=config('SWIFT_PASSWORD'),
+#                                         tenant_name=config('SWIFT_TENANT'),
+#                                         os_options={"endpoint_type": "admin"},
+#                                         auth_version='2.0')
 
-    # Realiza o upload
-    swift_conn.put_object(container, file_name, contents=data_json, content_type='application/json')
+#     # Realiza o upload
+#     swift_conn.put_object(container, file_name, contents=data_json, content_type='application/json')
 
 
 def exportar_dataframe(dataframe, conteudo, nome_arquivo, formato=None, vault=False):
@@ -56,8 +56,8 @@ def exportar_dataframe(dataframe, conteudo, nome_arquivo, formato=None, vault=Fa
         with open(path_arquivo.format('json', 'json'), 'w', encoding='utf-8') as f:
             data_json = dataframe.to_json(f, force_ascii=False, indent=4)
 
-            if vault:
-                swift_upload(file_name=nome_arquivo + '.json', data_json=data_json)
+            # if vault:
+            #     swift_upload(file_name=nome_arquivo + '.json', data_json=data_json)
 
             return data_json
 

@@ -178,7 +178,7 @@ def consolidate_events(campeonato=None, edicao=None, rodada=None, scout=None, pa
 			lances_jogador = sct.listar_lances_jogador_partida(jogos_id_interno)
 			#print('LANCES JOGADOR PRE PIVOT',lances_jogador.info())
 			lances = dfutils.pivot_columns(lances_jogador, ['Jogador','Partida'],append=True)
-			#print('LANCES',lances, lances.info())
+			print('LANCES######################################################',lances, lances.info())
 
 			# Inserindo informações dos atletas
 			lances = lances.rename(columns={'Jogador_CodigoExterno':'atleta_id'})
@@ -190,7 +190,8 @@ def consolidate_events(campeonato=None, edicao=None, rodada=None, scout=None, pa
 
 			lances['Lance'] = lances['Codigo'].apply(lambda x: sct.get_lance(x).split(',')[0])
 			lances = lances[['Codigo', 'Lance', 'Nome', 'Ocorrencia', 'PosicaoLance', 'TempoPartida','TimestampStr',
-			                  'atleta_id', 'apelido', 'sigla','Jogador_Posicao','Partida_CodigoExterno']]
+			                  'atleta_id', 'apelido', 'sigla','Jogador_Posicao','Partida_CodigoExterno','CampoPosicaoX',
+							  'CampoPosicaoY','ContraAtaque','Metros','TravePosicaoX','TravePosicaoY']]
 			
 			print('LANCES get lances',lances, lances.info())
 

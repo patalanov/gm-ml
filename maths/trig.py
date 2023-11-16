@@ -49,3 +49,59 @@ def calculate_distance_angles(row,metric):
         row['Angle Degrees Ot'] = gamma*180/np.pi
     
     return row
+
+
+
+
+import numpy as np
+
+def calculate_angles(row, metric):
+    """
+    Calculates the horizontal and vertical angles of a shot based on shot coordinates.
+    
+    Parameters:
+    row (Series): A row from a DataFrame containing the shot coordinates in meters.
+    metric (str): The metric name used to store the angle results.
+    
+    Returns:
+    Series: The input row augmented with angle calculations.
+    
+    The angles are calculated based on the positions given in meters.
+    Horizontal angle is calculated with respect to the center of the goal width.
+    The vertical angle is assumed to start at 0 degrees from the ground, becoming positive as it rises.
+    """
+    
+    goal_width_m = 7.32  # Official goal width in meters
+
+    # Coordinates in meters are already provided in the dataframe
+    x_m = row['field_x_metros']
+    y_m = row['field_y_metros']  # This is the position on the field, not the height above the ground
+    
+    # Horizontal angle calculation with respect to the goal center
+    a = np.sqrt((x_m - goal_width_m / 2) ** 2 + y_m ** 2)
+    b = np.sqrt((x_m + goal_width_m / 2) ** 2 + y_m ** 2)
+    cos_gamma = (goal_width_m ** 2 - a ** 2 - b ** 2) / (-2 * a * b)
+    gamma = np.arccos(np.clip(cos_gamma, -1, 1))  # Clip for numerical stability
+
+    # The vertical angle calculation is simplified since all shots are assumed to be taken at 0 degrees
+    # 'goal_y_px' is the height at which the ball crosses the goal line, so it is the vertical component
+    vertical_angle_radians = 0  # Starts at 0 degrees from the ground
+
+    # If 'goal_y_px' is provided, calculate the vertical angle at which the ball crosses the goal line
+    if 'goal_y_px' in row and 'goal_x_px' in row:
+        goal_x_px = row['goal_x_px']
+        goal_y_px = row['goal_y_px']
+        vertical_angle_radians = np.arctan2(goal_y_px, goal_x_px)  # Use arctan2 to calculate the angle
+
+    # Storing results
+    row[metric + '_angle_radians'] = gamma
+    row[metric + '_angle_degrees'] = np.degrees(gamma)
+    row[metric + '_vertical_angle_radians'] = vertical_angle_radians
+    row[metric + '_vertical_angle_degrees'] = np.degrees(vertical_angle_radians)
+
+    return row
+
+
+
+
+
