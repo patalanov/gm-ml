@@ -74,8 +74,12 @@ def calculate_angles(row, metric):
     goal_width_m = 7.32  # Official goal width in meters
 
     # Coordinates in meters are already provided in the dataframe
-    x_m = row['field_x_metros']
-    y_m = row['field_y_metros']  # This is the position on the field, not the height above the ground
+    if metric == 'xG':
+        x_m = row['field_x_metros']
+        y_m = row['field_y_metros']  # This is the position on the field, not the height above the ground
+    elif metric == 'xGOT':
+        x_m = row['field_x_metros_on_target']
+        y_m = row['field_y_metros_on_target']  # This is the position on the field, not the height above the ground
     
     # Horizontal angle calculation with respect to the goal center
     a = np.sqrt((x_m - goal_width_m / 2) ** 2 + y_m ** 2)
@@ -88,10 +92,16 @@ def calculate_angles(row, metric):
     vertical_angle_radians = 0  # Starts at 0 degrees from the ground
 
     # If 'goal_y_px' is provided, calculate the vertical angle at which the ball crosses the goal line
-    if 'goal_y_px' in row and 'goal_x_px' in row:
-        goal_x_px = row['goal_x_px']
-        goal_y_px = row['goal_y_px']
-        vertical_angle_radians = np.arctan2(goal_y_px, goal_x_px)  # Use arctan2 to calculate the angle
+    if metric == 'xG':
+        if 'goal_y_px' in row and 'goal_x_px' in row:
+            goal_x_px = row['goal_x_px']
+            goal_y_px = row['goal_y_px']
+            vertical_angle_radians = np.arctan2(goal_y_px, goal_x_px)  # Use arctan2 to calculate the angle
+    elif metric == 'xGOT':
+        if 'goal_y_px_on_target' in row and 'goal_x_px_on_target' in row:
+            goal_x_px = row['goal_x_px_on_target']
+            goal_y_px = row['goal_y_px_on_target']
+            vertical_angle_radians = np.arctan2(goal_y_px, goal_x_px)  # Use arctan2 to calculate the angle
 
     # Storing results
     row[metric + '_angle_radians'] = gamma
