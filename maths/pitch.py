@@ -557,8 +557,8 @@ def calculate_shots_coordinates(df, metric):
     df['Center_dist']  = df['Metros']  # Assumindo que 'Metros' já representa a distância do centro
     df['ContraAtaque'] = df['ContraAtaque'].fillna(0).astype(int)  # categorical as int
 
-        # calcular angulos
-    df = df.apply(lambda x: calculate_angles(x,metric), axis=1)
+    # calcular angulos
+    #df = df.apply(lambda x: calculate_angles(x,metric), axis=1)
     df = df.apply(lambda x: calculate_angles(x,metric), axis=1)
 
     return df
@@ -626,18 +626,317 @@ def calculate_shots_on_target_coordinates(df, metric):
     df['ContraAtaque'] = df['ContraAtaque'].fillna(0).astype(int)  # categorical as int
 
     # calcular angulos
-    df = df.apply(lambda row: calculate_angles(row, metric), axis=1)
+    #df = df.apply(lambda row: calculate_angles(row, metric), axis=1)
     df = df.apply(lambda row: calculate_angles(row, metric), axis=1)
 
     return df
 
 
 
+def process_passes_and_shots_with_old_coordinates(df, metric):
+
+    #########################################################################################################
+     # USAR CORDENADAS DE QUADRANTES PARA EVENTOS QUENAO TEM x,y FORNECIDO (assistencias e pre assistencias)
+    #########################################################################################################
+
+    df = sct.filter_db(df, scout_ids=[14,25,74, # passes
+                                    1,10,11,12,13,20,21,22,23,24,89,90, # finalizaçoes varias, resultantes em gol ou não
+                                    3,4,5,6,7,8,9,17,18,19,77]) # passes
+
+    df['coordenadas_event'] = df['PosicaoLance'].apply(lambda x: dictCoordenadas36.get(x))
+    #print(df['coordenadas'].isnull().sum())
+    df = df.dropna(subset=['coordenadas_event'])
+
+    x = []
+    y = []
+    for i, row in df.iterrows():
+        if row['PosicaoLance']==-1:
+            x.append(-1)
+            y.append(-1)
+        elif row['PosicaoLance']>=36:
+            x.append(-1)
+            y.append(-1)
+        else:
+            x.append(round(row['coordenadas_event'][0]+randint(10, 100),2))
+            y.append(round(row['coordenadas_event'][1]+randint(0, 130),2))
+            # x.append(row['coordenadas'][0]) #+randint(20, 70)
+            # y.append(row['coordenadas'][1]) #+randint(20, 100)
+    
+    df['x_quadrante_event'] = x
+    df['y_quadrante_event'] = y
+
+    # Normalizando tamanho campo em x e y
+    df['x_quadrante_event'] = ((df['x_quadrante_event']/550)*100) -6
+    df['y_quadrante_event'] = ((df['y_quadrante_event']/800)*100) -7
+
+    # Colocando na situação do campo
+    df['X_quadrante_event'] = df['x_quadrante_event']*0.68
+    df['Y_quadrante_event'] = df['y_quadrante_event']*1.05
+
+
+    df['x_quadrante_event'] = df['x_quadrante_event']
+    df['y_quadrante_event'] = 100-df['y_quadrante_event']
+
+    df['Center_dist_quadrante_event'] = abs(df['x_quadrante_event']-50)
+
+    # calcular angulos com metodo antigo
+    df = df.apply(lambda x: calculate_distance_angles(x,metric), axis=1)
+
+    return df
+
+
+def process_shots_with_new_coordinates(df, metric):
+    #########################################################################################################
+    # USAR CORDENADAS E MEDIDAS NOVAS PARA EVENTOS QUE TEM x,y FORNECIDO para FINALIZACOES e x,y DA BOLA NO GOL
+    #########################################################################################################
+
+    # Real-world dimensions of a football field and goal
+    goal_width_m   = 7.32  # Width of the goal in meters
+    goal_height_m  = 2.44  # Height of the goal in meters
+    field_width_m  = 65  # Width of the field in metersg
+    field_height_m = 50  # Full height of the field in meters (not half)
+
+    # Conversion rates from pixels to meters
+    proporcao_px_m_goal_width   = goal_width_m / (804 / 3)  # Convert goal width from pixels to meters
+    proporcao_px_m_goal_height  = goal_height_m / (306 / 3)  # Convert goal height from pixels to meters
+    proporcao_px_m_field_width  = field_width_m / 804  # Convert field width from pixels to meters
+    proporcao_px_m_field_height = field_height_m / 306  # Convert field height from pixels to meters
+
+    list_goals        = [11,23,6,17,55,60,38] # gols, given by scout service api
+    list_finalizacoes = [3,4,5,6,7,8,9,17,18,19,77] # finalizaçoes de cabeça, given by scout service api
+    
+    df['Goal']   = df['Codigo'].apply(lambda x: 1 if x in list_goals else 0)
+    df['header'] = df['Codigo'].apply(lambda x: 1 if x in list_finalizacoes else 0)
+
+    df = sct.filter_db(df, scout_ids=[1,10,11,12,13,20,21,22,23,24,89,90, #finalizaçoes varias, resultantes em gol ou não
+                                        3,4,5,6,7,8,9,17,18,19,77]) # finalizacoes de cabeça 
+
+    # Cópia das colunas de posição em pixels
+    df['goal_x_px_event']  = df['TravePosicaoX']
+    df['goal_y_px_event']  = df['TravePosicaoY']
+    df['field_x_px_event'] = df['CampoPosicaoX']
+    df['field_y_px_event'] = df['CampoPosicaoY']
+
+    # Adjusted conversion in the method
+    df['goal_x_metros_event'] = df['goal_x_px_event'] * proporcao_px_m_goal_width
+    df['goal_y_metros_event'] = df['goal_y_px_event'] * proporcao_px_m_goal_height
+
+    # Conversion of pixel coordinates to meters for the field
+    df['field_x_metros_event'] = df['field_x_px_event'] * proporcao_px_m_field_width
+    df['field_y_metros_event'] = df['field_y_px_event'] * proporcao_px_m_field_height
+
+    df['Center_dist_event'] = df['Metros']  # Assumindo que 'Metros' já representa a distância do centro
+    df['ContraAtaque']      = df['ContraAtaque'].fillna(0).astype(int)  # categorical as int
+
+    # calcular angulos com método novo
+    df = df.apply(lambda x: calculate_angles(x,metric), axis=1)
+
+    return df
+
+
+def calculate_events_coordinates(df, metric):
+
+    '''
+        ## Finalização
+        1:  'Finalização,Fora da Área,Bloqueado',
+        10: 'Finalização,Dentro Área,Defendido',
+        11: 'Finalização,Dentro Área,Gol',
+        12: 'Finalização,Dentro Área,Trave',
+        13: 'Finalização,Fora da Área,Defendido',
+        20: 'Finalização,Dentro Área,Fora',
+        21: 'Finalização,Dentro Área,Bloqueado',
+        22: 'Finalização,Fora da Área,Trave',
+        23: 'Finalização,Fora da Área,Gol',
+        24: 'Finalização,Fora da Área,Para Fora',
+        89: 'Finalização,Finalização,Certa',
+        90: 'Finalização,Finalização,Errada',
+
+        ## Finalização de Cabeça
+        3:  'Finalização Cabeça,Dentro Peq.Área,Defendido',
+        4:  'Finalização Cabeça,Dentro Peq.Área,Bloqueado',
+        5:  'Finalização Cabeça,Dentro Peq.Área,Trave',
+        6:  'Finalização Cabeça,Dentro Peq.Área,Gol',
+        7:  'Finalização Cabeça,Dentro Peq.Área,Fora',
+        8:  'Finalização Cabeça,Grande Área,Defendido',
+        9:  'Finalização Cabeça,Grande Área,Trave',
+        17: 'Finalização Cabeça,Grande Área,Gol',
+        18: 'Finalização Cabeça,Grande Área,Para Fora',
+        19: 'Finalização Cabeça,Grande Área,Bloqueado',
+        77: 'Finalização Cabeça,Cabeceio,Indefinido',
+
+        ## Passe
+        14: 'Passe,Decisivo',
+        25: 'Passe,Incompleto',
+        74: 'Passe,Completo',
+    '''
+        
+    # Filtrar primeiro os eventos de interesse
+
+    # Processar passes e finalizações separadamente
+    df_shots_and_passes = process_passes_and_shots_with_old_coordinates(df, metric)
+    df_shots            = process_shots_with_new_coordinates(df, metric)
+
+    # Concatenar os DataFrames processados
+    df_concatenated = pd.concat([df_shots_and_passes, df_shots])
+
+    # List of columns to fill NaN with 0
+    columns_to_fill = ['goal_x_px_event', 'goal_y_px_event', 'field_x_px_event', 'field_y_px_event',
+                    'goal_x_metros_event', 'goal_y_metros_event', 'field_x_metros_event', 'field_y_metros_event',
+                    'Center_dist_event', f'{metric}_angle_radians', f'{metric}_angle_degrees', 
+                    f'{metric}_vertical_angle_radians', f'{metric}_vertical_angle_degrees']
+
+    # Fill NaN values with 0
+    for col in columns_to_fill:
+        if col in df_concatenated.columns:
+            df_concatenated[col].fillna(0, inplace=True)
+
+
+    return df_concatenated
 
 
 
 
 
+
+
+
+# def calculate_events_coordinates(df,metric):
+
+#     '''
+#     ## Finalização
+#     1:  'Finalização,Fora da Área,Bloqueado',
+#     10: 'Finalização,Dentro Área,Defendido',
+#     11: 'Finalização,Dentro Área,Gol',
+#     12: 'Finalização,Dentro Área,Trave',
+#     13: 'Finalização,Fora da Área,Defendido',
+#     20: 'Finalização,Dentro Área,Fora',
+#     21: 'Finalização,Dentro Área,Bloqueado',
+#     22: 'Finalização,Fora da Área,Trave',
+#     23: 'Finalização,Fora da Área,Gol',
+#     24: 'Finalização,Fora da Área,Para Fora',
+#     89: 'Finalização,Finalização,Certa',
+#     90: 'Finalização,Finalização,Errada',
+
+#     ## Finalização de Cabeça
+#     3:  'Finalização Cabeça,Dentro Peq.Área,Defendido',
+#     4:  'Finalização Cabeça,Dentro Peq.Área,Bloqueado',
+#     5:  'Finalização Cabeça,Dentro Peq.Área,Trave',
+#     6:  'Finalização Cabeça,Dentro Peq.Área,Gol',
+#     7:  'Finalização Cabeça,Dentro Peq.Área,Fora',
+#     8:  'Finalização Cabeça,Grande Área,Defendido',
+#     9:  'Finalização Cabeça,Grande Área,Trave',
+#     17: 'Finalização Cabeça,Grande Área,Gol',
+#     18: 'Finalização Cabeça,Grande Área,Para Fora',
+#     19: 'Finalização Cabeça,Grande Área,Bloqueado',
+#     77: 'Finalização Cabeça,Cabeceio,Indefinido',
+
+#     ## Passe
+#     14: 'Passe,Decisivo',
+#     25: 'Passe,Incompleto',
+#     74: 'Passe,Completo',
+#     '''
+
+#     #########################################################################################################
+#     # USAR CORDENADAS DE QUADRANTES PARA EVENTOS QUENAO TEM x,y FORNECIDO (assistencias e pre assistencias)
+#     #########################################################################################################
+
+#     df_passes = df.copy()
+
+#     df_passes = sct.filter_db(df_passes, scout_ids=[14,25,74, #passes
+#                                                     1,10,11,12,13,20,21,22,23,24,89,90, #finalizaçoes varias, resultantes em gol ou não
+#                                                     3,4,5,6,7,8,9,17,18,19,77]) # passes
+
+#     df_passes['coordenadas_event'] = df_passes['PosicaoLance'].apply(lambda x: dictCoordenadas36.get(x))
+#     #print(df['coordenadas'].isnull().sum())
+#     df_passes = df_passes.dropna(subset=['coordenadas_event'])
+
+#     x = []
+#     y = []
+#     for i, row in df_passes.iterrows():
+#         if row['PosicaoLance']==-1:
+#             x.append(-1)
+#             y.append(-1)
+#         elif row['PosicaoLance']>=36:
+#             x.append(-1)
+#             y.append(-1)
+#         else:
+#             x.append(round(row['coordenadas_event'][0]+randint(10, 100),2))
+#             y.append(round(row['coordenadas_event'][1]+randint(0, 130),2))
+#             # x.append(row['coordenadas'][0]) #+randint(20, 70)
+#             # y.append(row['coordenadas'][1]) #+randint(20, 100)
+    
+#     df_passes['x_quadrante_event'] = x
+#     df_passes['y_quadrante_event'] = y
+
+#     # Normalizando tamanho campo em x e y
+#     df_passes['x_quadrante_event'] = ((df_passes['x_quadrante_event']/550)*100) -6
+#     df_passes['y_quadrante_event'] = ((df_passes['y_quadrante_event']/800)*100) -7
+
+#     # Colocando na situação do campo
+#     df_passes['X_quadrante_event'] = df_passes['x_quadrante_event']*0.68
+#     df_passes['Y_quadrante_event'] = df_passes['y_quadrante_event']*1.05
+
+
+#     df_passes['x_quadrante_event'] = df_passes['x_quadrante_event']
+#     df_passes['y_quadrante_event'] = 100-df_passes['y_quadrante_event']
+
+#     df_passes['Center_dist_quadrante_event'] = abs(df_passes['x_quadrante_event']-50)
+
+#     df_passes = df_passes.apply(lambda x: calculate_distance_angles(x,metric), axis=1)
+
+#     #########################################################################################################
+#     # USAR CORDENADAS E MEDIDAS NOVAS PARA EVENTOS QUE TEM x,y FORNECIDO para FINALIZACOES e x,y DA BOLA NO GOL
+#     #########################################################################################################
+
+#     # Real-world dimensions of a football field and goal
+#     goal_width_m   = 7.32  # Width of the goal in meters
+#     goal_height_m  = 2.44  # Height of the goal in meters
+#     field_width_m  = 65  # Width of the field in metersg
+#     field_height_m = 50  # Full height of the field in meters (not half)
+
+#     # Conversion rates from pixels to meters
+#     proporcao_px_m_goal_width   = goal_width_m / (804 / 3)  # Convert goal width from pixels to meters
+#     proporcao_px_m_goal_height  = goal_height_m / (306 / 3)  # Convert goal height from pixels to meters
+#     proporcao_px_m_field_width  = field_width_m / 804  # Convert field width from pixels to meters
+#     proporcao_px_m_field_height = field_height_m / 306  # Convert field height from pixels to meters
+
+#     list_goals        = [11,23,6,17,55,60,38] # gols, given by scout service api
+#     list_finalizacoes = [3,4,5,6,7,8,9,17,18,19,77] # finalizaçoes de cabeça, given by scout service api
+
+#     df_finali = df.copy() 
+    
+#     df_finali['Goal']   = df_finali['Codigo'].apply(lambda x: 1 if x in list_goals else 0)
+#     df_finali['header'] = df_finali['Codigo'].apply(lambda x: 1 if x in list_finalizacoes else 0)
+
+#     df_finali = sct.filter_db(df_finali, scout_ids=[1,10,11,12,13,20,21,22,23,24,89,90, #finalizaçoes varias, resultantes em gol ou não
+#                                                     3,4,5,6,7,8,9,17,18,19,77]) # finalizacoes de cabeça 
+
+#     # Cópia das colunas de posição em pixels
+#     df_finali['goal_x_px_event']  = df_finali['TravePosicaoX']
+#     df_finali['goal_y_px_event']  = df_finali['TravePosicaoY']
+#     df_finali['field_x_px_event'] = df_finali['CampoPosicaoX']
+#     df_finali['field_y_px_event'] = df_finali['CampoPosicaoY']
+
+#     # Adjusted conversion in the method
+#     df_finali['goal_x_metros_event'] = df_finali['goal_x_px_event'] * proporcao_px_m_goal_width
+#     df_finali['goal_y_metros_event'] = df_finali['goal_y_px_event'] * proporcao_px_m_goal_height
+
+#     # Conversion of pixel coordinates to meters for the field
+#     df_finali['field_x_metros_event'] = df_finali['field_x_px_event'] * proporcao_px_m_field_width
+#     df_finali['field_y_metros_event'] = df_finali['field_y_px_event'] * proporcao_px_m_field_height
+
+#     df_finali['Center_dist_event'] = df_finali['Metros']  # Assumindo que 'Metros' já representa a distância do centro
+#     df_finali['ContraAtaque']      = df_finali['ContraAtaque'].fillna(0).astype(int)  # categorical as int
+
+#         # calcular angulos
+#     #df_finali = df_finali.apply(lambda x: calculate_angles(x,metric), axis=1)
+#     df_finali = df_finali.apply(lambda x: calculate_angles(x,metric), axis=1)
+#     # cocatenar dataframes de eventos e finalizacoes
+#     df_concatenado = pd.concat([df_passes, df_finali], axis=0)
+#     # retornar apenas os eventos desejados
+#     df_filtrado = df_concatenado.query('Finalizacao == 1 or Pre_Assistencia ==1 or Assistencia ==1')
+
+#     return df_filtrado
 
 
 
