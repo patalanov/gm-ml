@@ -639,9 +639,16 @@ def process_passes_and_shots_with_old_coordinates(df, metric):
      # USAR CORDENADAS DE QUADRANTES PARA EVENTOS QUENAO TEM x,y FORNECIDO (assistencias e pre assistencias)
     #########################################################################################################
 
+    list_goals        = [11,23,6,17,55,60,38] # gols, given by scout service api
+    list_finalizacoes = [3,4,5,6,7,8,9,17,18,19,77] # finalizaçoes de cabeça, given by scout service api
+
+    df['Goal']   = df['Codigo'].apply(lambda x: 1 if x in list_goals else 0)
+    df['header'] = df['Codigo'].apply(lambda x: 1 if x in list_finalizacoes else 0)
+
     df = sct.filter_db(df, scout_ids=[14,25,74, # passes
                                     1,10,11,12,13,20,21,22,23,24,89,90, # finalizaçoes varias, resultantes em gol ou não
-                                    3,4,5,6,7,8,9,17,18,19,77]) # passes
+                                    3,4,5,6,7,8,9,17,18,19,77, # passes
+                                    103]) # assistencias
 
     df['coordenadas_event'] = df['PosicaoLance'].apply(lambda x: dictCoordenadas36.get(x))
     #print(df['coordenadas'].isnull().sum())
@@ -734,8 +741,9 @@ def process_shots_with_new_coordinates(df, metric):
     return df
 
 
-def calculate_events_coordinates(df, metric):
 
+        
+def calculate_events_coordinates(df, metric):
     '''
         ## Finalização
         1:  'Finalização,Fora da Área,Bloqueado',
@@ -768,30 +776,49 @@ def calculate_events_coordinates(df, metric):
         14: 'Passe,Decisivo',
         25: 'Passe,Incompleto',
         74: 'Passe,Completo',
+
+        103: Assistência para Finalização 
     '''
-        
-    # Filtrar primeiro os eventos de interesse
+    # Processar passes e finalizações com coordenadas antigas
+    df_passes_and_shots = process_passes_and_shots_with_old_coordinates(df, metric)
 
-    # Processar passes e finalizações separadamente
-    df_shots_and_passes = process_passes_and_shots_with_old_coordinates(df, metric)
-    df_shots            = process_shots_with_new_coordinates(df, metric)
+    # Processar apenas finalizações com coordenadas novas
+    df_shots = process_shots_with_new_coordinates(df, metric)
 
-    # Concatenar os DataFrames processados
-    df_concatenated = pd.concat([df_shots_and_passes, df_shots])
+    # Identificar colunas comuns para mesclagem
+    common_columns = list(set(df_passes_and_shots.columns).intersection(set(df_shots.columns)))
 
-    # List of columns to fill NaN with 0
-    columns_to_fill = ['goal_x_px_event', 'goal_y_px_event', 'field_x_px_event', 'field_y_px_event',
-                    'goal_x_metros_event', 'goal_y_metros_event', 'field_x_metros_event', 'field_y_metros_event',
-                    'Center_dist_event', f'{metric}_angle_radians', f'{metric}_angle_degrees', 
-                    f'{metric}_vertical_angle_radians', f'{metric}_vertical_angle_degrees']
+    # Mesclar os dataframes nas colunas comuns, mantendo todas as linhas de ambos os dataframes
+    df_merged = pd.merge(df_passes_and_shots, df_shots, on=common_columns, how='outer')
 
-    # Fill NaN values with 0
-    for col in columns_to_fill:
-        if col in df_concatenated.columns:
-            df_concatenated[col].fillna(0, inplace=True)
+    # Tratando possíveis colunas duplicadas resultantes da mesclagem
+    # Exemplo: Se existirem colunas com sufixos _x e _y após a mesclagem, combine-as como desejado.
+    # Aqui, substituímos os valores NaN em colunas _x pelas colunas _y correspondentes e removemos as colunas _y.
 
+    for col in df_merged:
+        if col.endswith('_x'):
+            col_y = col[:-2] + '_y'
+            if col_y in df_merged:
+                df_merged[col] = df_merged[col].fillna(df_merged[col_y])
+                df_merged.drop(col_y, axis=1, inplace=True)
+                df_merged.rename(columns={col: col[:-2]}, inplace=True)
 
-    return df_concatenated
+    # Preenchendo valores NaN com 0 nas colunas de métricas, 
+    # no caso das coliunas que apenas existem para finalizações com as novas coordenadas
+    metric_columns = [f'{metric}_angle_radians', f'{metric}_angle_degrees',
+                      f'{metric}_vertical_angle_radians', f'{metric}_vertical_angle_degrees',
+                      'goal_x_px_event', 'goal_y_px_event', 'field_x_px_event', 'field_y_px_event',
+                      'goal_x_metros_event', 'goal_y_metros_event', 'field_x_metros_event', 'field_y_metros_event',
+                      'Center_dist_event']
+    
+    for col in metric_columns:
+        if col in df_merged.columns:
+            df_merged[col].fillna(0, inplace=True)
+
+    df_merged = df_merged.dropna()
+
+    return df_merged
+
 
 
 

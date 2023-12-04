@@ -8,4 +8,8 @@ database/2023/scout_service/events/
 database/2023/scout_service/finalizacoes/
 database/2023/scout_service/scouts_equipes/
 
+Events.csv
+Finalizacoes.csv
+PreAssistencias.csv
+
 
