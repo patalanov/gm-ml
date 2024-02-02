@@ -494,8 +494,6 @@ proporcao_px_m_field_height = 0.1222  # 1 pixel corresponds to approximately 0.1
 
 
 
-
-
 def calculate_shots_coordinates(df, metric):
     """
     Converts shot position coordinates from pixels to meters, both for goal and field.
