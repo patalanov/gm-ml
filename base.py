@@ -503,10 +503,10 @@ class Base:
         
 
 
-        # torneios = ['Libertadores',  'Brasileiro', 'BrasileiroB', 'CopaBrasil', 'CopaNordeste', 'CopaSPJunior', 'Carioca','Gaucho', 'Mineiro', 'Baiano', 'Paulista', 'Pernambucano',
-        #             'PreLibertadores', 'RecopaSulAmericana', 'SulAmericana', 'SuperCopaBrasil']        
+        torneios = ['Libertadores',  'Brasileiro', 'BrasileiroB', 'CopaBrasil', 'CopaNordeste', 'CopaSPJunior', 'Carioca','Gaucho', 'Mineiro', 'Baiano', 'Paulista', 'Pernambucano',
+                    'PreLibertadores', 'RecopaSulAmericana', 'SulAmericana', 'SuperCopaBrasil']        
     
-        torneios = ['Libertadores','CopaBrasil','Brasileiro']
+        #torneios = ['Libertadores','CopaBrasil','Brasileiro']
 
         if teams:
             torneios = ['Brasileiro']
@@ -523,10 +523,10 @@ class Base:
 
         
 if __name__ == "__main__":
-    atualizador = AtualizarRedis('2023')
-    base = Base('2023')
+    atualizador = AtualizarRedis('2024')
+    base = Base('2024')
     # rodada, df_individual = base.run(vault=True)
-    df_eventos = base.run_scout_service(edicao=2023)
+    df_eventos = base.run_scout_service(edicao=2024)
     #df_eventos = base.run_scout_service(edicao=2023,teams=True)
 
     #atualizador.atualizar_base(df_individual, rodada)
