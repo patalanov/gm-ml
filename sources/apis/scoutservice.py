@@ -29,11 +29,9 @@ from decouple import config
 
 
 SCOUT_SERVICE_URL = config('SCOUT_SERVICE_URL')
+SCOUT_SERVICE_USER = config('SCOUT_SERVICE_USER')
+SCOUT_SERVICE_PASSWORD = config('SCOUT_SERVICE_PASSWORD')
 
-
-
-
-#SCOUT_SERVICE_URL = 'https://scoutservice.apps.g.globo/ScoutJson.svc'
 
 
 dictLances = {
@@ -156,7 +154,7 @@ def request_scout(url):
     user =  'CARTOLA'
     password =  'C2wFRuvj6ldguiS5lrXDDUgmz$q^xq'
     url = SCOUT_SERVICE_URL + url
-    resp = requests.get(url, auth=(user, password)).content
+    resp = requests.get(url, auth=(SCOUT_SERVICE_USER, SCOUT_SERVICE_PASSWORD)).content
     resp = json.loads(resp)
     return resp
 

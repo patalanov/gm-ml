@@ -73,6 +73,7 @@ def consolidate_events(campeonato=None, edicao=None, start_date=None, rodada=Non
 	'''    
 	#print(sct.listar_campeonatos())
 
+
 	# Selecionando jogos do campeonado Brasileiro 
 	df_jogos = sct.listar_partidas(campeonato,edicao)
 	#print(df_jogos.info())
@@ -80,6 +81,18 @@ def consolidate_events(campeonato=None, edicao=None, start_date=None, rodada=Non
 	 # Always create the 'Data' column
 	df_jogos['Data'] = df_jogos['DataRodada'].apply(lambda x: x.split('T')[0])
     
+	print(df_jogos.info())
+	# Ensure there are entries for this edition before proceeding
+	# Define the columns to check for non-null values
+	relevant_columns = ['Arbitros', 'Cronometragem', 'DataHoraPeriodoPartida', 'GolsEquipe1', 'GolsEquipe2', 'Lances', 'LancesAcumulados', 'Localidade', 'Substituicoes']
+
+	# Check if all relevant columns have 0 non-null values
+	if all(df_jogos[col].notnull().sum() == 0 for col in relevant_columns):
+		print(f">>> No relevant data found for {campeonato} in {edicao}. Skipping.")
+		return
+	else:
+		print(f"Processing data for {campeonato} in {edicao}.")
+
 	# Sorting by 'Data' in ascending order
 	df_jogos = df_jogos.sort_values(by='Data')
 	# Filter matches based on the start date if available
@@ -109,8 +122,8 @@ def consolidate_events(campeonato=None, edicao=None, start_date=None, rodada=Non
 		try:
 			print('--------------------------')
 			print('Loading: ',jogos_id_interno)
-			print('     Código Externo:', df_jogos[df_jogos['Codigo']==jogos_id_interno]['CodigoExterno'].unique()[0])
-			print('     Carregando dados do jogo...')
+			print('Código Externo:', df_jogos[df_jogos['Codigo']==jogos_id_interno]['CodigoExterno'].unique()[0])
+			print('Carregando dados do jogo...')
 			df_jogo = df_jogos[df_jogos['Codigo']==jogos_id_interno]
             
 			#print('DF JOGO',df_jogo, df_jogo.info())
@@ -182,26 +195,40 @@ def consolidate_events(campeonato=None, edicao=None, start_date=None, rodada=Non
 
 
 def get_latest_date_from_existing_data(torneio, edicao):
-    try:    
-        df_existing = pd.read_csv(f'database/2023/scout_service/events/Eventos_All.gz', 
-                                  compression='gzip')
+    try:
+        df_existing = pd.read_csv(f'database/{edicao}/scout_service/events/Eventos_All.gz', compression='gzip')
+        
+        print(f"Checking for {torneio} in {edicao} within existing data...")  # Debugging print
+        
+        # Ensure 'Edicao' is treated as string for comparison purposes
+        df_existing['Edicao'] = df_existing['Edicao'].astype(str)
 
-        # Explicitly check if 'Data' column exists in df_existing
         if 'Data' in df_existing.columns and not df_existing.empty:
-            df_tournament = df_existing[df_existing['Torneio'] == torneio]
-            df_tournament_sorted = df_tournament.sort_values(by='Data', ascending=False)
+            df_filtered = df_existing[
+                (df_existing['Torneio'] == torneio) &
+                (df_existing['Edicao'] == str(edicao))
+            ]
+            # Debugging print to check filtered DataFrame
+            print(f"Filtered DataFrame for {torneio} in {edicao}:")
+            print(df_filtered[['Torneio', 'Edicao', 'Data']].head())  # Adjust columns as needed
 
-            latest_date = df_tournament_sorted['Data'].iloc[0] if not df_tournament_sorted.empty else None
-            latest_rodada = df_tournament_sorted['Rodada'].iloc[0] if not df_tournament_sorted.empty else None
+            if not df_filtered.empty:
+                df_tournament_sorted = df_filtered.sort_values(by='Data', ascending=False)
+                latest_date = df_tournament_sorted['Data'].iloc[0]
+                latest_rodada = df_tournament_sorted['Rodada'].iloc[0]
 
-            print(f"Latest date for {torneio} in {edicao}: {latest_date}")
-            print(f"Corresponding 'Rodada' for the latest date: {latest_rodada}")
+                print(f"Latest date for {torneio} in {edicao}: {latest_date}")
+                print(f"Corresponding 'Rodada' for the latest date: {latest_rodada}")
+                return latest_date  # Ensure to return the latest date here
+            else:
+                print(f">>> No entries found for {torneio} in {edicao}.")
+                return None
         else:
-            print(f"No 'Data' column or empty DataFrame found for {torneio} in {edicao}")
+            print(f"No 'Data' column or empty DataFrame found for {torneio} in {edicao}.")
             return None
 
     except FileNotFoundError:
-        print(f"No file found for {torneio} in {edicao}")
+        print(f"No file found for {torneio} in {edicao}.")
         return None
 
 
@@ -218,22 +245,30 @@ def stats_atletas(torneios, edicao):
         df_jogos_api = sct.listar_partidas(torneio, edicao)
         if df_jogos_api.empty:
             print(f"O DataFrame para {torneio} em {edicao} está vazio. Pulando para o próximo torneio.")
-            continue  # Pular para o próximo torneio se o DataFrame estiver vazio
+            continue
+        
         df_jogos_api['Data'] = df_jogos_api['DataRodada'].apply(lambda x: x.split('T')[0])
         latest_date_api = df_jogos_api['Data'].max()
 
-        # Compare the dates to decide whether to fetch new data
-        if latest_date_saved is None or latest_date_saved < latest_date_api:
-            for lances in consolidate_events(torneio, edicao, latest_date_saved):
-                # File paths for saving
-                file_path_tournament = f'database/2023/scout_service/events/Eventos_Torneio_{torneio}.gz'
-                file_path_all = f'database/2023/scout_service/events/Eventos_All.gz'
-                # Save the data
+        # Diagnostic prints to understand the comparison
+        print(f"Latest saved date for {torneio} in {edicao}: {latest_date_saved}")
+        print(f"Latest API date for {torneio} in {edicao}: {latest_date_api}")
+
+        # Directly compare the string representations of dates
+        if latest_date_saved and latest_date_saved < latest_date_api:
+            start_date = latest_date_saved
+        else:
+            start_date = None
+
+        print(f"Start date for filtering: {start_date}")
+
+        # Proceed with data consolidation only if there's new data to fetch
+        if start_date or not latest_date_saved:
+            for lances in consolidate_events(torneio, edicao, start_date):
+                # Save the new data as required
+                file_path_tournament = f'database/{edicao}/scout_service/events/Eventos_Torneio_{torneio}.gz'
+                file_path_all = f'database/{edicao}/scout_service/events/Eventos_All.gz'
                 lances.to_csv(file_path_tournament, mode='a', header=not os.path.exists(file_path_tournament), index=False, compression='gzip')
                 lances.to_csv(file_path_all, mode='a', header=not os.path.exists(file_path_all), index=False, compression='gzip')
         else:
             print(f"All data for {torneio} in {edicao} is already up-to-date.")
-
-
-
-	

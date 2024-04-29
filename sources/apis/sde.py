@@ -40,10 +40,12 @@ dictSlugs = {
                 2014:'brasileirao2014', 2015:'brasileirao-2015', 2016:'campeonato-brasileiro-2016', 2017:'campeonato-brasileiro-2017',
                 2018:'campeonato-brasileiro-2018', 2019:'campeonato-brasileiro-2019', 2020:'campeonato-brasileiro-2020',
                 2021:'campeonato-brasileiro-2021', 2022: 'campeonato-brasileiro-2022', 2023: 'campeonato-brasileiro-2023',
+                2024: 'campeonato-brasileiro-2024',
             }
 
 dictSlugs_regional = {
                 2023: 'campeonato-paulista-2023',
+                2024: 'campeonato-paulista-2024',
             }
 
 def consulta_url_sde(url):
